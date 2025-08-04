@@ -1,0 +1,55 @@
+---
+import heroLogo from "../assets/BTGHero.svg"
+---
+
+<header>
+  <nav class="navbar">
+    <ul>
+      <li class="logo">
+        <a href="/">
+          <img src={heroLogo.src} width="300" alt="Astro Homepage" />
+        </a>
+      </li>
+      <div class="links">
+        <li>
+          <a href="/about">About</a>
+        </li>
+        <li>
+          <a href="/contact">Contact</a>
+        </li>
+
+      </div>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .navbar {
+    padding-block:2em;
+    background-color: var(--clr-light);
+    ul{
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .links {
+      display:flex;
+      gap:2em;
+      margin-inline:2em;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--clr-dark);
+      font-weight: 600;
+      font-size: larger;
+      text-transform: uppercase;
+    }
+    li {
+      list-style-type: none;
+      
+    }
+  }
+</style>

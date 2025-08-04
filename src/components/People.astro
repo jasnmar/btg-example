@@ -1,0 +1,30 @@
+---
+import Section from "../components/Section.astro"
+import { getCollection } from "astro:content"
+import Person from "../components/Person.astro"
+
+const people = await getCollection("profile")
+---
+
+
+<Section>
+  <h2>Our People</h2>
+  <div class="people-container">
+  {
+    people.map((person) => {
+      return (
+        <Person person={person} />
+        )
+    })
+  }
+  </div>
+</Section>
+
+<style>
+  .people-container {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2em;
+  }
+</style>

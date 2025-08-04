@@ -1,0 +1,55 @@
+---
+import { getCollection, render, type CollectionEntry } from "astro:content"
+import Layout from "../../layouts/Layout.astro"
+import Section from "../../components/Section.astro"
+
+export async function getStaticPaths() {
+  const profiles = await getCollection("profile")
+  return profiles.map((profile) => ({
+    params: { slug: profile.id },
+    props: { profile }
+  }))
+}
+
+interface Props {
+  profile: CollectionEntry<"profile">
+}
+
+const { profile } = Astro.props
+console.log("profile")
+const { Content } = await render(profile)
+---
+
+<Layout>
+  <Section >
+    <div class="profile">
+      <img
+        class="profile-image"
+        src={profile.data.image}
+        alt={profile.data.name}
+      />
+      <h1 class="profile-title">{profile.data.title}</h1>
+      <h2 class="profile-date">{profile.data.name}</h2>
+      <Content />
+    </div>
+  </Section>
+</Layout>
+
+<style>
+  .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+  .profile-image {
+    width: 20em;
+    border-radius: var(--border-radius);
+  }
+  h1 {
+    font-size: 2em;
+  }
+  h2 {
+    margin-bottom:1em;
+  }
+}
+</style>

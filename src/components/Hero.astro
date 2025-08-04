@@ -1,0 +1,33 @@
+---
+import Section from "../components/Section.astro"
+import codeImage from "../assets/code.webp"
+---
+
+<main>
+  <div class="hero-text">
+    <h1>
+      BuildToGive connects early-career tech professionals with nonprofits to
+      build digital tools, grow real-world skills, foster community, and make
+      the world a little better.
+    </h1>
+  </div>
+  <picture class="hero-image">
+    <source srcset={codeImage.src} media="(orientation: portrait)" />
+    <img src={codeImage.src} alt="" />
+  </picture>
+</main>
+
+<style>
+  .hero-text {
+    padding: 4em;
+    @media (max-width: 1000px) {
+      & {
+        padding: 2em;
+      }
+    }
+  }
+
+  .hero-image {
+    width: 100%;
+  }
+</style>

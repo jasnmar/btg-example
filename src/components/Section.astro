@@ -1,0 +1,45 @@
+---
+import Container from "./Container.astro"
+
+interface Props {
+  dark?: boolean
+  main?: boolean
+}
+const { dark = false } = Astro.props
+const { main = false } = Astro.props
+const classNames = dark ? "dark" : ""
+console.log(main)
+---
+
+{
+  main == true ? (
+    <main class={classNames}>
+      <Container>
+        <slot />
+      </Container>
+    </main>
+  ) : (
+    <section class={classNames}>
+      <Container>
+        <slot />
+      </Container>
+    </section>
+  )
+}
+
+<style>
+  section {
+    padding-block: 80px;
+    background-color: var(--primary);
+
+    @media (max-width: 1000px) {
+      & {
+        padding-block: 40px;
+      }
+    }
+  }
+  .dark {
+    background-color: var(--clr-accent);
+    color: var(--clr-darkest);
+  }
+</style>
