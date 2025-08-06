@@ -13,6 +13,15 @@ const project = defineCollection({
   })
 })
 
+const policy = defineCollection({
+  loader: file("src/data/policies.json"),
+  schema: z.object({
+    title: z.string(),
+    description: z.string().optional(),
+    image: z.string(),
+    slug: z.string(),
+  })
+})
 
 const profile = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "src/data/profiles" }),
@@ -23,5 +32,5 @@ const profile = defineCollection({
   })
 })
 
-export const collections = { project, profile }
+export const collections = { project, profile, policy }
 

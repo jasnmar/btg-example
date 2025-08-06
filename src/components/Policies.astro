@@ -1,7 +1,72 @@
 ---
 import Section from "../components/Section.astro"
+import { getCollection } from "astro:content"
+
+const policies = await getCollection("policy")
 ---
 
-<Section>
+<Section dark={true}>
   <h2>Our Policies</h2>
+  <div class="project-container">
+    {
+      policies.map((policy) => (
+        <div class="card">
+          <img src={policy.data.image} alt={policy.data.title} />
+          <div>
+            <h3>{policy.data.title}</h3>
+            <p class="description">{policy.data.description}</p>
+            <div class="button-container"></div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
 </Section>
+
+<style>
+  .card {
+    overflow: hidden;
+    display: flex;
+    gap: 2em;
+    margin-bottom: 2em;
+
+    h3 {
+      font-size: 30px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .description {
+      margin-bottom: 2em;
+    }
+
+    img {
+      height: 15em;
+      width: 15em;
+      object-fit: cover;
+    }
+
+    .button-container {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 800px) {
+      & {
+        flex-direction: column;
+      }
+
+      img {
+        align-self: center;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .button-container {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  }
+</style>

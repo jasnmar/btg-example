@@ -40,6 +40,9 @@ const year = today.getFullYear()
         ></path></svg
       >
     </a>
+    <div class="attribution">
+      <a href="https://www.flaticon.com/authors/bsd" title="non profit organization icons"><small>Some Images Courtesy of bsd</small></a>
+    </div>
   </div>
 </footer>
 
@@ -50,13 +53,23 @@ const year = today.getFullYear()
     padding-bottom: 2em;
     position: fixed;
     bottom: 0;
-    background-color: var(--clr-dark);
+    background-color: var(--clr-accent);
     padding-top:1em;
 
     .copyright {
       position: fixed;
       bottom: 0;
       padding-left: 0.5em;
+    }
+    .attribution {
+      position: fixed;
+      bottom: 0;
+      padding-right: 0.5em;
+      right:0;
+      a {
+        text-decoration: none;
+        color: var(--clr-darkets);
+      }
     }
 
     .social {

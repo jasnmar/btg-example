@@ -1,0 +1,24 @@
+[
+    {
+      "title": "Who we work with",
+      "slug": "policy-1",
+      "description": "We work with nonprofit organization who are in need of technological assistance. Whether that means building a webpage, website, or some type of application, if you work with a nonprofit that is in need of building stuff for the web, please let us know.",
+      "image": "/images/policies/non-profit-organization.png"
+
+    },
+    {
+      "title": "Sed mollis accumsan tortor, id.",
+      "slug": "policy-2",
+      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
+      "image": "/images/policies/forestry.png"
+
+    },
+    {
+      "title": "Etiam posuere eget justo a",
+      "slug": "policy-3",
+      "description": "Nulla a augue laoreet, scelerisque metus a, sodales nunc. Sed risus leo, tincidunt id dapibus sit amet, imperdiet id nulla. Etiam quis hendrerit mauris. Maecenas eros sem, vulputate viverra gravida quis, egestas at risus. Fusce nibh turpis, scelerisque nec volutpat sed, scelerisque et urna. Cras efficitur elit orci, eget eleifend sem luctus vitae. Sed aliquet pretium metus, ultrices accumsan lacus viverra id.",
+      "image": "/images/policies/bus-route.png",
+      "githubURL": "#",
+      "liveSiteURL": "#"
+    }
+  ]

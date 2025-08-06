@@ -9,7 +9,7 @@ interface Props {
 const { dark = false } = Astro.props
 const { main = false } = Astro.props
 const classNames = dark ? "dark" : ""
-console.log(main)
+
 ---
 
 {
@@ -40,7 +40,7 @@ console.log(main)
     }
   }
   .dark {
-    background-color: var(--clr-accent);
-    color: var(--clr-darkest);
+    background-color: var(--clr-dark);
+    color: var(--clr-lightest);
   }
 </style>
