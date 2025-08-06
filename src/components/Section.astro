@@ -5,6 +5,7 @@ interface Props {
   dark?: boolean
   main?: boolean
 }
+
 const { dark = false } = Astro.props
 const { main = false } = Astro.props
 const classNames = dark ? "dark" : ""

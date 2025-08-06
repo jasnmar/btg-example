@@ -1,0 +1,64 @@
+---
+import Section from "../components/Section.astro"
+---
+
+<Section dark={true}>
+  <h1>Ways to contact us</h1>
+  <div data-id="volForm" id="volunteer" class="expandbutton">
+    <h2 data-id="volForm">Volunteer with Us</h2>
+  </div>
+  <iframe
+    id="volForm"
+    class="airtable-embed collapse"
+    src="https://airtable.com/embed/appD77SpIDa1e09ID/paga2bi1GDpipbGn7/form"
+    width="100%"></iframe>
+  <div data-id="helpForm" id="help" class="expandbutton">
+    <h2 data-id="helpForm">Help Us Help You</h2>
+  </div>
+  <iframe
+    id="helpForm"
+    class="airtable-embed collapse"
+    src="https://airtable.com/embed/appD77SpIDa1e09ID/pagd2rHHfK7MRhzuN/form"
+    width="100%"
+    height="800"
+    style="background: transparent"></iframe>
+</Section>
+
+<script>
+  function expandClick(e: Event) {
+    const target = e.target as HTMLElement
+    const form = document.getElementById(
+      target.dataset.id as string
+    ) as HTMLIFrameElement
+    if (!form) return
+    if (form) {
+      if (form.classList.contains("collapse")) {
+        form.classList.remove("collapse")
+      } else {
+        form.classList.add("collapse")
+      }
+    }
+  }
+
+  const volDiv = document.getElementById("volunteer")
+  volDiv?.addEventListener("click", (e) => expandClick(e))
+  const helpDiv = document.getElementById("help")
+  helpDiv?.addEventListener("click", (e) => expandClick(e))
+</script>
+
+<style>
+  h1 {
+    font-size: 3em;
+  }
+  .expandbutton {
+    cursor: pointer;
+  }
+  .airtable-embed {
+    border: 0;
+    height: 700px;
+    background-color: var(--clr-lightest);
+  }
+  .collapse {
+    height: 0;
+  }
+</style>

@@ -1,5 +1,6 @@
 ---
 import heroLogo from "../assets/BTGHero.svg"
+import smallLogo from "../assets/BTGSmall.svg"
 ---
 
 <header>
@@ -7,7 +8,11 @@ import heroLogo from "../assets/BTGHero.svg"
     <ul>
       <li class="logo">
         <a href="/">
-          <img src={heroLogo.src} width="300" alt="Astro Homepage" />
+          <picture>
+            <source srcset={heroLogo.src} media="(min-width: 640px)" />
+            <source srcset={smallLogo.src} media="(min-width: 100px)" />
+            <img src={heroLogo.src} alt="Build to Give Logo" />
+          </picture>
         </a>
       </li>
       <div class="links">
@@ -17,7 +22,6 @@ import heroLogo from "../assets/BTGHero.svg"
         <li>
           <a href="/contact">Contact</a>
         </li>
-
       </div>
     </ul>
   </nav>
@@ -25,31 +29,38 @@ import heroLogo from "../assets/BTGHero.svg"
 
 <style>
   .navbar {
-    padding-block:2em;
+    padding-block: 2em;
     background-color: var(--clr-light);
-    ul{
+    ul {
       display: flex;
       justify-content: space-between;
       flex-direction: row;
       align-items: center;
     }
 
+    img {
+      max-width: 300px;
+      height: 53;
+      @media screen and (max-width: 640px) {
+        max-height:53px;
+      }
+    }
+
     .links {
-      display:flex;
-      gap:2em;
-      margin-inline:2em;
+      display: flex;
+      gap: 2em;
+      margin-inline: 2em;
     }
 
     a {
       text-decoration: none;
-      color: var(--clr-dark);
+      color: var(--clr-darkest);
       font-weight: 600;
       font-size: larger;
       text-transform: uppercase;
     }
     li {
       list-style-type: none;
-      
     }
   }
 </style>

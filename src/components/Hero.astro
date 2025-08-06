@@ -1,15 +1,24 @@
 ---
 import Section from "../components/Section.astro"
 import codeImage from "../assets/code.webp"
+import heroLogo from "../assets/BTGHero.svg"
+import smallLogo from "../assets/BTGSmall.svg"
 ---
 
 <main>
-  <div class="hero-text">
-    <h1>
-      BuildToGive connects early-career tech professionals with nonprofits to
-      build digital tools, grow real-world skills, foster community, and make
-      the world a little better.
-    </h1>
+  <div class="hero">
+    <picture>
+      <!-- <source srcset={heroLogo.src} media="(min-width: 640px)" /> -->
+      <source srcset={smallLogo.src} media="(min-width: 100px)" />
+      <img class="hero-logo" src={heroLogo.src} alt="Build to Give Logo" />
+    </picture>
+    <div class="hero-text">
+      <h1>
+        BuildToGive connects early-career tech professionals with nonprofits to
+        build digital tools, grow real-world skills, foster community, and make
+        the world a little better.
+      </h1>
+    </div>
   </div>
   <picture class="hero-image">
     <source srcset={codeImage.src} media="(orientation: portrait)" />
@@ -18,6 +27,16 @@ import codeImage from "../assets/code.webp"
 </main>
 
 <style>
+  .hero {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-inline: 2em;
+    @media (max-width: 1000px) {
+      flex-direction: column;
+    }
+  }
   .hero-text {
     padding: 4em;
     @media (max-width: 1000px) {
@@ -26,7 +45,15 @@ import codeImage from "../assets/code.webp"
       }
     }
   }
-
+  .hero-logo {
+    height: 200px;
+    max-width: unset;
+    @media (max-width: 1000px) {
+      & {
+        padding-top: 2em;
+      }
+    }
+  }
   .hero-image {
     width: 100%;
   }
