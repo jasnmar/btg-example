@@ -4,19 +4,17 @@ const year = today.getFullYear()
 ---
 
 <footer>
-  <div class="copyright">
-    <small>Copyright &copy; {year} Build To Give.</small>
-  </div>
+
   <div class="social">
-    <a href="#">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"
+    <a href="#" name="facebook" target="_blank">
+      <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"
         ><!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
         <path
           d="M240 363.3L240 576L356 576L356 363.3L442.5 363.3L460.5 265.5L356 265.5L356 230.9C356 179.2 376.3 159.4 428.7 159.4C445 159.4 458.1 159.8 465.7 160.6L465.7 71.9C451.4 68 416.4 64 396.2 64C289.3 64 240 114.5 240 223.4L240 265.5L174 265.5L174 363.3L240 363.3z"
         ></path></svg
       >
     </a>
-    <a href="#">
+    <a href="#" name="twitter" target="_blank">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"
         ><!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
         <path
@@ -24,7 +22,7 @@ const year = today.getFullYear()
         ></path></svg
       >
     </a>
-    <a href="#">
+    <a href="#" name="linkedin" target="_blank">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"
         ><!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
         <path
@@ -32,7 +30,7 @@ const year = today.getFullYear()
         ></path></svg
       >
     </a>
-    <a href="#">
+    <a href="#" name="instagram" target="_blank">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"
         ><!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
         <path
@@ -40,8 +38,16 @@ const year = today.getFullYear()
         ></path></svg
       >
     </a>
+  </div>
+    <div class="bottom-container">
+
+    <div class="copyright">
+      <small>Copyright &copy; {year} Build To Give.</small>
+    </div>
     <div class="attribution">
-      <a href="https://www.flaticon.com/authors/bsd" title="non profit organization icons"><small>Some Images Courtesy of bsd</small></a>
+      <a href="https://www.flaticon.com/authors/bsd" title="policies icons"
+      ><small>Policy Icons from bsd</small></a
+      >
     </div>
   </div>
 </footer>
@@ -50,26 +56,30 @@ const year = today.getFullYear()
   footer {
     align-items: center;
     width: 100%;
-    padding-bottom: 2em;
+    padding-bottom: 0;
     position: fixed;
     bottom: 0;
     background-color: var(--clr-accent);
-    padding-top:1em;
+    padding-top: 1em;
 
     .copyright {
-      position: fixed;
-      bottom: 0;
       padding-left: 0.5em;
     }
+
     .attribution {
-      position: fixed;
-      bottom: 0;
+
       padding-right: 0.5em;
-      right:0;
+
       a {
         text-decoration: none;
         color: var(--clr-darkets);
       }
+    }
+    .bottom-container{
+      bottom:0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
     }
 
     .social {

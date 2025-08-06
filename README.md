@@ -1,36 +1,20 @@
-# Astro Starter Kit: Basics
+# Build To Give - Demo
 
-```sh
-npm create astro@latest -- --template basics
-```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+I'm just playing with some concepts for the Build To Give website using Astro
 
 ## 🚀 Project Structure
 
-Inside of your Astro project, you'll see the following folders and files:
+Anything in public folder is pushed to prod.
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+Most of the code is in src. There are static assets, components, data (where some of the content comes 
+from... If you want to add data and make it accessible you need to add to content.config.ts), layouts (there's currently just 1), as well as pages. Currently this is configured as a Single Page Site (there are some links that open some other pages).
+
+Styling is _mostly_ done in the components (this seems to be what Astro recommends), 
+but there are some general properties (resets, variable, etc.) in style.css in the root of src.
 
 To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
 
 ## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
 
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
