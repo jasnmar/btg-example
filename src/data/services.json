@@ -1,0 +1,62 @@
+[
+  {
+    "title": "Python",
+    "description": "Python is a very lean programming language. Python programs are a great deal shorter than code written in other modern programming languages. As a result, both development times and maintenance costs are drastically reduced. Less code means fewer errors, meaning the cost of identifying and eliminating these errors is also reduced.",
+    "slug": "python"
+  },
+  {
+    "title": "PHP",
+    "description": "PHP (Hypertext Preprocessor) is a popular open-source, server-side scripting language primarily used for web development. It was originally created by Rasmus Lerdorf in 1994 as a set of Common Gateway Interface (CGI) scripts for tracking web traffic. PHP has evolved significantly since then and is now a powerful and versatile language capable of handling complex web applications.",
+    "slug": "PHP"
+  },
+  {
+    "title": ".NET",
+    "description": ".NET is an open-source, cross-platform software development framework created by Microsoft. It allows developers to build a variety of applications for different operating systems, including Windows, macOS, and Linux. The platform provides tools, programming languages (like C#), and libraries to create modern, scalable, and high-performance software.",
+    "slug": "NET"
+  },
+  {
+    "title": "Laravel",
+    "description": "Laravel is a popular open-source PHP framework for building web applications. It was created with the goal of making web development more elegant, expressive, and efficient. It provides a robust set of tools and features that simplify common development tasks, allowing developers to focus on the unique logic of their applications.",
+    "slug": "Laravel"
+  },
+  {
+    "title": "Django",
+    "description": "Django is a high-level, open-source web framework written in Python. It's designed to make it easier and faster for developers to build complex, database-driven websites and web applications. Django follows the 'batteries-included' philosophy, meaning it comes with a comprehensive set of built-in features for many common web development tasks, so you don't have to add them yourself.",
+    "slug": "Django"
+  },
+  {
+    "title": "Kotlin",
+    "description": "Kotlin is a statically typed, cross-platform programming language that's concise, safe, and interoperable with Java. Developed by JetBrains, it's a modern language that addresses many of the common pain points of Java while maintaining full compatibility with the vast Java ecosystem.",
+    "slug": "Kotlin"
+  },
+  {
+    "title": "Angular",
+    "description": "Angular is a platform and framework for building single-page client-side applications using HTML and TypeScript. It's maintained by Google and a community of developers. Angular provides a structured, component-based approach to web development, which helps in building scalable and maintainable applications.",
+    "slug": "Angular"
+  },
+  {
+    "title": "React.JS",
+    "description": "React.js (often just called React) is a JavaScript library for building user interfaces. It's not a full-fledged framework like Angular or Vue.js, but it's widely used for building modern single-page applications and dynamic web pages. Developed and maintained by Facebook, React's core philosophy is to simplify the process of building complex user interfaces by breaking them down into reusable components.",
+    "slug": "React"
+  },
+  {
+    "title": "Unity",
+    "description": "Unity is a powerful cross-platform game engine and development platform created by Unity Technologies. It's used by developers, from hobbyists to large studios, to create 2D and 3D games, as well as other interactive content like simulations, architectural visualizations, and augmented reality (AR) and virtual reality (VR) experiences.",
+    "slug": "Unity"
+  },
+  {
+    "title": "LAMP",
+    "description": "LAMP is a popular open-source software stack used for building dynamic web applications. The acronym stands for its four core components: Linux, Apache, MySQL, and PHP. These four technologies work together to provide a complete environment for developing, hosting, and serving websites",
+    "slug": "LAMPET"
+  },
+  {
+    "title": "C#",
+    "description": "C# (pronounced 'C sharp') is a modern, object-oriented programming language developed by Microsoft in the early 2000s. It was designed as the primary language for the .NET framework to be a more productive and safer alternative to C++",
+    "slug": "C"
+  },
+  {
+    "title": "Swift",
+    "description": "Swift is a modern, general-purpose, and multi-paradigm programming language developed by Apple. It was introduced in 2014 as a replacement for Objective-C, the primary language for Apple platforms for decades. Swift is known for its speed, safety, and modern syntax, making it an excellent choice for building apps for Apple's ecosystem.",
+    "slug": "Swift"
+  }
+]

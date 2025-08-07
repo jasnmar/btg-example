@@ -2,26 +2,15 @@
 import Section from "./Section.astro"
 import Pill from "./Pill.astro"
 
-const services = [
-  "Python Development",
-  "PHP Development",
-  ".NET Development",
-  "Laravel Development",
-  "Django Development",
-  "Kotlin Development",
-  "Angular Development",
-  "React.JS Development",
-  "Unity Development",
-  "LAMP Development",
-  "C / C# / C++ Development",
-  "Swift Development"
-]
+import { getCollection } from "astro:content"
+
+const services = await getCollection("services")
 ---
 
 <Section>
   <h2>What we offer</h2>
   <div class="service-list">
-    {services.map((service) => <Pill>{service}</Pill>)}
+    {services.map((service) => <Pill>{service.data.title}</Pill>)}
   </div>
 </Section>
 
