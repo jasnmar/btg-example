@@ -3,7 +3,7 @@ import Section from "../components/Section.astro"
 ---
 
 <Section dark={true}>
-  <h1>Ways to contact us</h1>
+  <h2>Ways to contact us</h2>
   <div data-id="volForm" id="volunteer" class="expandbutton">
     <h2 data-id="volForm">Volunteer with Us</h2>
   </div>
@@ -49,18 +49,18 @@ import Section from "../components/Section.astro"
 </script>
 
 <style>
-  h1 {
-    font-size: 3em;
-  }
   .expandbutton {
     cursor: pointer;
   }
+
   .airtable-embed {
     border: 0;
     height: 700px;
     background-color: var(--clr-lightest);
   }
+
   .collapse {
     height: 0;
   }
+  
 </style>

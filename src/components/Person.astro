@@ -7,7 +7,7 @@ const { person } = Astro.props
 const id = person.id
 ---
 
-<a href=`/profile/${id}`>
+<a href=`/profile/${id}` target="_blank">
   <div class="person-container">
     <img src={person.data.image} alt={person.data.name} />
     <p class="name">{person.data.name}</p>
@@ -23,7 +23,9 @@ const id = person.id
     place-content: center;
     flex-wrap: wrap;
     img {
-      width: 10em;
+      width: 15em;
+      height:15em;
+      object-fit: cover;
       border-radius: var(--border-radius);
     }
     .name {
