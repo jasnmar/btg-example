@@ -1,14 +1,22 @@
 ---
+interface Props {
+  tooltip?: string
+  color?: string
+}
+
+const { tooltip, color } = Astro.props
+const bgColor = color || "var(--clr-accent)"
+
 ---
 
-<div class="pill">
+<div class="pill" data-tooltip={tooltip}>
   <slot />
 </div>
 
 
-<style>
+<style define:vars={{ bgColor }}>
   .pill {
-    background-color: var(--clr-accent);
+    background-color: var(--bgColor);
     color: var(--clr-darkest);
     padding: 0.5em 1em;
     border-radius: var(--border-radius);

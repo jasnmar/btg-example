@@ -67,7 +67,6 @@ const year = today.getFullYear()
     }
 
     .attribution {
-
       padding-right: 0.5em;
 
       a {
@@ -75,6 +74,7 @@ const year = today.getFullYear()
         color: var(--clr-darkets);
       }
     }
+
     .bottom-container{
       bottom:0;
       display: flex;
@@ -88,6 +88,11 @@ const year = today.getFullYear()
       justify-content: center;
       align-items: center;
       gap: 1em;
+
+      svg:hover{
+        filter:drop-shadow(0 0 1em var(--clr-lightest)) ;
+
+      }
 
       svg {
         width: 3em;
