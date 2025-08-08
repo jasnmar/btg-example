@@ -16,7 +16,10 @@ const { text } = Astro.props
 <style>
   .tooltip-container {
     display: inline-block;
-    position: relative; /* This is crucial for the tooltip's absolute positioning */
+    position: relative;
+    @media screen and (width < 600px){
+      position:inherit
+    }
   }
 
   .tool-tip {
