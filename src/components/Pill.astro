@@ -1,4 +1,7 @@
 ---
+import Tooltip from "../components/Tooltip.astro"
+
+
 interface Props {
   tooltip?: string
   color?: string
@@ -9,9 +12,11 @@ const bgColor = color || "var(--clr-accent)"
 
 ---
 
-<div class="pill" data-tooltip={tooltip}>
-  <slot />
-</div>
+  <div class="pill" data-tooltip="I am a tooltip">
+    <Tooltip text={tooltip} />
+    <slot />
+  </div>
+
 
 
 <style define:vars={{ bgColor }}>
@@ -20,5 +25,6 @@ const bgColor = color || "var(--clr-accent)"
     color: var(--clr-darkest);
     padding: 0.5em 1em;
     border-radius: var(--border-radius);
+    position:relative;
   }
 </style>

@@ -1,0 +1,40 @@
+---
+interface Props {
+  text?: string
+}
+
+const { text } = Astro.props
+---
+
+<div class="tooltip-container">
+  <div class="tool-tip">
+    {text}
+  </div>
+</div>
+
+<style>
+  .tooltip-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    &:hover .tool-tip {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  
+  .tool-tip {
+    transition: opacity 0.5s ease-in-out;
+    position: absolute;
+    top: 2em;
+    background-color: var(--clr-darkest);
+    color: var(--clr-lightest);
+    padding: 0.5em 1em;
+    border-radius: var(--border-radius);
+    opacity: 0;
+    width: 350px;
+    z-index: 1;
+    visibility: hidden;
+  }
+</style>
