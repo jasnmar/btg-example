@@ -11,11 +11,11 @@ const { tooltip, color } = Astro.props
 const bgColor = color || "var(--clr-accent)"
 
 ---
-
-  <div class="pill" data-tooltip="I am a tooltip">
-    <Tooltip text={tooltip} />
+  <Tooltip text={tooltip}>
+  <div class="pill">
     <slot />
   </div>
+  </Tooltip>
 
 
 

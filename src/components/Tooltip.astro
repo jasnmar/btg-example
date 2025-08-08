@@ -7,6 +7,7 @@ const { text } = Astro.props
 ---
 
 <div class="tooltip-container">
+  <slot />
   <div class="tool-tip">
     {text}
   </div>
@@ -14,27 +15,95 @@ const { text } = Astro.props
 
 <style>
   .tooltip-container {
-    position: absolute;
-    width: 100%;
-    height: 100%;
     display: inline-block;
-    &:hover .tool-tip {
-      opacity: 1;
-      visibility: visible;
-    }
+    position: relative; /* This is crucial for the tooltip's absolute positioning */
   }
-  
+
   .tool-tip {
     transition: opacity 0.5s ease-in-out;
     position: absolute;
-    top: 2em;
+    font-family: Arial, Helvetica, sans-serif;
+    /* Default position, will be adjusted by JS */
+    top: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+
     background-color: var(--clr-darkest);
     color: var(--clr-lightest);
     padding: 0.5em 1em;
     border-radius: var(--border-radius);
+    width: max-content;
+    max-width: 350px;
+    z-index: 10;
+
+    /* Controlled by JS */
     opacity: 0;
-    width: 350px;
-    z-index: 1;
     visibility: hidden;
   }
+
+  /* Class added by JS to show the tooltip */
+  .tool-tip.visible {
+    opacity: 1;
+    visibility: visible;
+  }
 </style>
+
+<script>
+  const tooltipContainers = document.querySelectorAll(".tooltip-container")
+
+  for (const container of tooltipContainers) {
+    const tooltip = container.querySelector(".tool-tip")
+
+    if (!(tooltip instanceof HTMLElement) || !tooltip.textContent?.trim()) {
+      continue
+    }
+
+    const showTooltip = () => {
+      tooltip.classList.add("visible")
+
+      // Reset to default position to measure from a predictable state.
+      tooltip.style.top = "125%"
+      tooltip.style.bottom = "auto"
+      tooltip.style.left = "50%"
+      tooltip.style.transform = "translateX(-50%)"
+
+      // Get the latest position and dimensions
+      const tooltipRect = tooltip.getBoundingClientRect()
+      const margin = 8 // 8px buffer from the viewport edge
+
+      // Check if it overflows the viewport vertically
+      if (tooltipRect.bottom > window.innerHeight - margin) {
+        tooltip.style.top = "auto"
+        tooltip.style.bottom = "125%"
+      }
+
+      // Check if it overflows the viewport horizontally
+      // We need to get the latest measurements in case the vertical position flipped
+      const finalRect = tooltip.getBoundingClientRect()
+      if (finalRect.right > window.innerWidth - margin) {
+        tooltip.style.left = "auto"
+        tooltip.style.right = `${margin}px`
+        tooltip.style.transform = "translateX(0)"
+      } else if (finalRect.left < margin) {
+        tooltip.style.left = `${margin}px`
+        tooltip.style.right = "auto"
+        tooltip.style.transform = "translateX(0)"
+      }
+
+      // Force a reflow to apply the new position instantly before re-enabling transitions.
+      void tooltip.offsetWidth
+
+      // Re-enable transitions for the fade-in/out effect.
+      tooltip.style.transition = "opacity 0.5s ease-in-out"
+    }
+
+    const hideTooltip = () => {
+      tooltip.classList.remove("visible")
+    }
+
+    container.addEventListener("mouseenter", showTooltip)
+    container.addEventListener("focusin", showTooltip)
+    container.addEventListener("mouseleave", hideTooltip)
+    container.addEventListener("focusout", hideTooltip)
+  }
+</script>
