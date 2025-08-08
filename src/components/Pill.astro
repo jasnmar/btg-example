@@ -1,6 +1,5 @@
 ---
-import Tooltip from "../components/Tooltip.astro"
-
+import Tooltip from "./Tooltip.astro"
 
 interface Props {
   tooltip?: string
@@ -9,15 +8,13 @@ interface Props {
 
 const { tooltip, color } = Astro.props
 const bgColor = color || "var(--clr-accent)"
-
 ---
-  <Tooltip text={tooltip}>
+
+<Tooltip text={tooltip}>
   <div class="pill">
     <slot />
   </div>
-  </Tooltip>
-
-
+</Tooltip>
 
 <style define:vars={{ bgColor }}>
   .pill {
@@ -25,6 +22,6 @@ const bgColor = color || "var(--clr-accent)"
     color: var(--clr-darkest);
     padding: 0.5em 1em;
     border-radius: var(--border-radius);
-    position:relative;
+    position: relative;
   }
 </style>
