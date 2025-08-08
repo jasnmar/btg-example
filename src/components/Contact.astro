@@ -1,5 +1,5 @@
 ---
-import Section from "../components/Section.astro"
+import Section from "./Section.astro"
 ---
 
 <Section dark={true}>
@@ -7,6 +7,7 @@ import Section from "../components/Section.astro"
   <div data-id="volForm" id="volunteer" class="expandbutton">
     <h3 data-id="volForm">Volunteer with Us</h3>
   </div>
+  
   <iframe
     title="Volunteer Form"
     id="volForm"
@@ -27,11 +28,12 @@ import Section from "../components/Section.astro"
 </Section>
 
 <script>
-  function expandClick(e: Event) {
-    const target = e.target as HTMLElement
-    const form = document.getElementById(
-      target.dataset.id as string
-    ) as HTMLIFrameElement
+  function expandClick(e:Event) {
+    const target = e.target;
+    if (!(target instanceof HTMLElement) || !target.dataset.id) {
+      return;
+    }
+    const form = document.getElementById(target.dataset.id);
     if (!form) return
     if (form) {
       if (form.classList.contains("collapse")) {
@@ -43,9 +45,9 @@ import Section from "../components/Section.astro"
   }
 
   const volDiv = document.getElementById("volunteer")
-  volDiv?.addEventListener("click", (e) => expandClick(e))
+  volDiv?.addEventListener("click", expandClick)
   const helpDiv = document.getElementById("help")
-  helpDiv?.addEventListener("click", (e) => expandClick(e))
+  helpDiv?.addEventListener("click", expandClick)
 </script>
 
 <style>
