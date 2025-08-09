@@ -1,85 +1,17 @@
 ---
 import Section from "./Section.astro"
+import Airtable from "./Airtable.astro"
+
+const isDev = import.meta.env.DEV
+// const isDev = false
+console.log(isDev)
+
 ---
 
 <Section dark={true}>
   <h2>Ways to contact us</h2>
-<!-- 
-  <div data-id="volForm" id="volunteer" class="expandbutton">
-    <h3 data-id="volForm">Volunteer with Us</h3>
-  </div>
-  <iframe
-    title="Volunteer Form"
-    id="volForm"
-    class="airtable-embed volForm collapse"
-    src="https://airtable.com/embed/appD77SpIDa1e09ID/paga2bi1GDpipbGn7/form"
-    width="100%"></iframe>
-  <div data-id="helpForm" id="help" class="expandbutton">
-    <h3 data-id="helpForm">Help Us Help You</h3>
-  </div>
-  <iframe
-    title="Get Help from us Form"
-    id="helpForm"
-    class="airtable-embed helpForm collapse"
-    src="https://airtable.com/embed/appD77SpIDa1e09ID/pagd2rHHfK7MRhzuN/form"
-    width="100%"
-    height="800"
-    style="background: transparent"></iframe> -->
+  {isDev ? "" : <Airtable />}
 
 </Section>
 
-<script>
-  function expandClick(e:Event) {
-    const target = e.target;
-    if (!(target instanceof HTMLElement) || !target.dataset.id) {
-      return;
-    }
-    const form = document.getElementById(target.dataset.id);
-    if (!form) return
-    if (form) {
-      if (form.classList.contains("collapse")) {
-        form.classList.remove("collapse")
-      } else {
-        form.classList.add("collapse")
-      }
-    }
-  }
 
-  const volDiv = document.getElementById("volunteer")
-  volDiv?.addEventListener("click", expandClick)
-  const helpDiv = document.getElementById("help")
-  helpDiv?.addEventListener("click", expandClick)
-</script>
-
-<style>
-  .expandbutton {
-    cursor: pointer;
-    ::after {
-      content: " -";
-    }
-    &:has(+ iframe.collapse) {
-      ::after {
-        content: " +";
-      }
-    }
-  }
-
-  .airtable-embed {
-    border: 0;
-    background-color: var(--clr-lightest);
-    overflow: hidden;
-    transition: height 1s ease-in;
-  }
-
-  .volForm {
-    height:700px;
-  }
-
-  .helpForm {
-    height:900px;
-  }
-
-  iframe.collapse {
-    height: 0;
-  }
-</style>
