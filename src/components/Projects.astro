@@ -2,85 +2,26 @@
 import { getCollection } from "astro:content"
 import Section from "./Section.astro"
 import ButtonLink from "./ButtonLink.astro"
+import Card from "./Card.astro"
 
 const projects = await getCollection("project")
 ---
 
 <Section dark={true} id="projects">
   <h2>Our Projects</h2>
+
   <div class="project-container">
     {
       projects.map((project) => (
-        <div class="card">
-          <img src={project.data.image} alt={project.data.title} />
-          <div>
-            <h3>{project.data.title}</h3>
-            <p class="description">{project.data.description}</p>
-            <div class="button-container">
-              <ButtonLink
-                href={`${project.data.githubURL}`}
-                text="View on Github"
-                variant="secondary"
-              />
-              <ButtonLink
-                href={`${project.data.liveSiteUrl}`}
-                text="View Live"
-              />
-            </div>
-          </div>
-        </div>
+        <Card
+          image={project.data.image}
+          title={project.data.title}
+          description={project.data.description}
+          links={project.data.links}
+        />
       ))
     }
   </div>
+ 
 </Section>
 
-
-
-<style>
-  .card {
-    overflow: hidden;
-    display: flex;
-    gap: 2em;
-    margin-bottom:2em;
-
-    h3 {
-      font-size: 30px;
-      font-weight: 600;
-      margin-bottom: 20px;
-    }
-
-    .description {
-      margin-bottom: 2em;
-    }
-
-    img {
-      height: 15em;
-      width: 15em;
-      object-fit: cover;
-    }
-
-    .button-container {
-      display: flex;
-      gap: 10px;
-      margin-top: 10px;
-      
-    }
-
-    @media screen and (width <  800px) {
-      & {
-        flex-direction: column;
-      }
-
-      img {
-        align-self: center;
-      }
-    }
-
-    @media screen and  (width < 600px) {
-      .button-container {
-        flex-direction: column;
-        gap: 10px;
-      }
-    }
-  }
-</style>

@@ -8,8 +8,15 @@ const project = defineCollection({
     description: z.string().optional(),
     image: z.string(),
     slug: z.string(),
-    liveSiteUrl: z.string().optional(),
-    githubURL: z.string()
+    links: z
+      .array(
+        z.object({
+          href: z.string(),
+          text: z.string(),
+          variant: z.enum(["primary", "secondary"]).optional()
+        })
+      )
+      .optional()
   })
 })
 
@@ -20,6 +27,15 @@ const policy = defineCollection({
     description: z.string().optional(),
     image: z.string(),
     slug: z.string(),
+    links: z
+      .array(
+        z.object({
+          href: z.string(),
+          text: z.string(),
+          variant: z.enum(["primary", "secondary"]).optional()
+        })
+      )
+      .optional()
   })
 })
 
@@ -28,7 +44,7 @@ const services = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    slug: z.string(),
+    slug: z.string()
   })
 })
 
@@ -37,9 +53,8 @@ const profile = defineCollection({
   schema: z.object({
     name: z.string(),
     title: z.string(),
-    image: z.string(),
+    image: z.string()
   })
 })
 
 export const collections = { project, profile, policy, services }
-
