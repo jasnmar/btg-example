@@ -4,23 +4,25 @@ import Container from "./Container.astro"
 interface Props {
   dark?: boolean
   main?: boolean
+  id?: string
 }
 
 const { dark = false } = Astro.props
 const { main = false } = Astro.props
+const { id = "" } = Astro.props
 const classNames = dark ? "dark" : ""
 
 ---
 
 {
   main == true ? (
-    <main class={classNames}>
+    <main class={classNames} id={id}>
       <Container>
         <slot />
       </Container>
     </main>
   ) : (
-    <section class={classNames}>
+    <section class={classNames} id={id}> 
       <Container>
         <slot />
       </Container>
@@ -33,12 +35,12 @@ const classNames = dark ? "dark" : ""
     padding-block: 80px;
     background-color: var(--primary);
 
-    @media screen and (max-width: 1200px) {
+    @media screen and (width < 1200px) {
       & {
         padding-block: 40px;
       }
     }
-    @media screen and (max-width: 600px) {
+    @media screen and (width < 600px) {
       & {
         padding-block: 20px;
       }

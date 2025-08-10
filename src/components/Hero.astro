@@ -5,13 +5,15 @@ import codeSmall from "../assets/codeSmall.webp"
 
 import heroLogo from "../assets/BTGHero.svg"
 import smallLogo from "../assets/BTGSmall.svg"
+import Section from "../components/Section.astro"
 ---
 
-<main>
+<Section main={true} id="home">
   <div class="hero">
     <picture >
-      <source srcset={heroLogo.src} media="(max-width: 1200px)" />
-      <source srcset={smallLogo.src} media="(min-width: 1200px)" />
+      <source srcset={smallLogo.src} media="(width > 1200px)" />
+      <source srcset={smallLogo.src} media="(width < 1200px) and (width < 300px" />
+      <source srcset={smallLogo.src} media="(width < 300px)" />
       <img class="hero-logo" src={heroLogo.src} alt="Build to Give Logo" />
     </picture>
     <div class="hero-text">
@@ -28,7 +30,7 @@ import smallLogo from "../assets/BTGSmall.svg"
     <source srcset={codeSmall.src} media="(min-width: 100px)" />
     <img src={codeImage.src} alt="" />
   </picture>
-</main>
+</Section>
 
 <style>
   .hero {
@@ -37,7 +39,7 @@ import smallLogo from "../assets/BTGSmall.svg"
     justify-content: center;
     align-items: center;
 
-    @media screen and (max-width: 1200px) {
+    @media screen and (width < 1200px) {
       flex-direction: column;
     }
   }
@@ -46,7 +48,7 @@ import smallLogo from "../assets/BTGSmall.svg"
 
   .hero-text {
     padding: 4em;
-    @media screen and (max-width: 1200px) {
+    @media screen and (width < 1200px) {
       & {
         padding: 2em;
       }
@@ -57,13 +59,13 @@ import smallLogo from "../assets/BTGSmall.svg"
     height: 200px;
     max-width: unset;
     padding-inline: 2em;
-    @media screen and (max-width: 1200px) {
+    @media screen and (width < 1200px) {
       & {
         padding-top: 2em;
         max-width: 100%;
       }
     }
-    @media screen and (max-width: 600px) {
+    @media screen and (width < 600px) {
       & {
         padding-top: 1em;
         max-width: 100%;

@@ -6,7 +6,7 @@ import ButtonLink from "./ButtonLink.astro"
 const projects = await getCollection("project")
 ---
 
-<Section dark={true}>
+<Section dark={true} id="projects">
   <h2>Our Projects</h2>
   <div class="project-container">
     {
@@ -66,7 +66,7 @@ const projects = await getCollection("project")
       
     }
 
-    @media screen and (max-width: 800px) {
+    @media screen and (width <  800px) {
       & {
         flex-direction: column;
       }
@@ -76,7 +76,7 @@ const projects = await getCollection("project")
       }
     }
 
-    @media screen and  (max-width: 600px) {
+    @media screen and  (width < 600px) {
       .button-container {
         flex-direction: column;
         gap: 10px;

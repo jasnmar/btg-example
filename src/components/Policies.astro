@@ -5,7 +5,7 @@ import { getCollection } from "astro:content"
 const policies = await getCollection("policy")
 ---
 
-<Section dark={true}>
+<Section dark={true} id="policies">
   <h2>Our Policies</h2>
   <div class="project-container">
     {
@@ -52,7 +52,7 @@ const policies = await getCollection("policy")
       margin-top: 10px;
     }
 
-    @media screen and (max-width: 800px) {
+    @media screen and (width < 800px) {
       & {
         flex-direction: column;
       }
@@ -62,7 +62,7 @@ const policies = await getCollection("policy")
       }
     }
 
-    @media screen and (max-width: 600px) {
+    @media screen and (width <  600px) {
       .button-container {
         flex-direction: column;
         gap: 10px;

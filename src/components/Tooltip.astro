@@ -17,9 +17,6 @@ const { text } = Astro.props
   .tooltip-container {
     display: inline-block;
     position: relative;
-    @media screen and (width < 600px){
-      position:inherit
-    }
   }
 
   .tool-tip {
@@ -29,7 +26,7 @@ const { text } = Astro.props
     /* Default position, will be adjusted by JS */
     top: 125%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-100%);
 
     background-color: var(--clr-darkest);
     color: var(--clr-lightest);
@@ -39,9 +36,11 @@ const { text } = Astro.props
     max-width: 350px;
     z-index: 10;
 
-    /* Controlled by JS */
     opacity: 0;
     visibility: hidden;
+    @media screen and (width < 600px) {
+      display: none;
+    }
   }
 
   /* Class added by JS to show the tooltip */
