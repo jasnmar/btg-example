@@ -29,13 +29,18 @@ const classNames = dark ? "dark" : ""
 }
 
 <style>
-  section {
+  section,main {
     padding-block: 80px;
     background-color: var(--primary);
 
     @media (max-width: 1200px) {
       & {
         padding-block: 40px;
+      }
+    }
+    @media screen and (max-width: 600px) {
+      & {
+        padding-block: 20px;
       }
     }
   }
