@@ -11,18 +11,15 @@ const { dark = false } = Astro.props
 const { main = false } = Astro.props
 const { id = "" } = Astro.props
 const classNames = dark ? "dark" : ""
-
 ---
 
 {
   main == true ? (
     <main class={classNames} id={id}>
-      <Container>
-        <slot />
-      </Container>
+      <slot />
     </main>
   ) : (
-    <section class={classNames} id={id}> 
+    <section class={classNames} id={id}>
       <Container>
         <slot />
       </Container>
