@@ -4,7 +4,6 @@ const year = today.getFullYear()
 ---
 
 <footer>
-
   <div class="social">
     <a href="#" name="facebook" aria-label="facebook" target="_blank">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"
@@ -39,14 +38,13 @@ const year = today.getFullYear()
       >
     </a>
   </div>
-    <div class="bottom-container">
-
+  <div class="bottom-container">
     <div class="copyright">
       <small>Copyright &copy; {year} Build To Give.</small>
     </div>
     <div class="attribution">
       <a href="https://www.flaticon.com/authors/bsd" title="policies icons"
-      ><small>Policy Icons from bsd</small></a
+        ><small>Policy Icons from bsd</small></a
       >
     </div>
   </div>
@@ -54,6 +52,8 @@ const year = today.getFullYear()
 
 <style>
   footer {
+    display:flex;
+    flex-direction: column;
     align-items: center;
     width: 100%;
     padding-bottom: 0;
@@ -61,13 +61,21 @@ const year = today.getFullYear()
     bottom: 0;
     background-color: var(--clr-accent);
     padding-top: 1em;
-
-    .copyright {
-      padding-left: 0.5em;
+    @media screen and (max-width: 600px) {
+      padding-top:.5em;
     }
 
+    small {
+      font-size:.6em;
+    }
+
+    .copyright {
+      padding-left: 0.5rem;
+    }
+
+
     .attribution {
-      padding-right: 0.5em;
+      padding-right: 0.5rem;
 
       a {
         text-decoration: none;
@@ -75,11 +83,12 @@ const year = today.getFullYear()
       }
     }
 
-    .bottom-container{
-      bottom:0;
+    .bottom-container {
+      bottom: 0;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      width: 100%;
     }
 
     .social {
@@ -89,9 +98,8 @@ const year = today.getFullYear()
       align-items: center;
       gap: 1em;
 
-      svg:hover{
-        filter:drop-shadow(0 0 1em var(--clr-lightest)) ;
-
+      svg:hover {
+        filter: drop-shadow(0 0 1em var(--clr-lightest));
       }
 
       svg {

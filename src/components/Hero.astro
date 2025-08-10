@@ -9,7 +9,7 @@ import smallLogo from "../assets/BTGSmall.svg"
 
 <main>
   <div class="hero">
-    <picture>
+    <picture >
       <source srcset={heroLogo.src} media="(max-width: 1200px)" />
       <source srcset={smallLogo.src} media="(min-width: 1200px)" />
       <img class="hero-logo" src={heroLogo.src} alt="Build to Give Logo" />
@@ -37,17 +37,16 @@ import smallLogo from "../assets/BTGSmall.svg"
     justify-content: center;
     align-items: center;
 
-    @media (max-width: 1200px) {
+    @media screen and (max-width: 1200px) {
       flex-direction: column;
     }
   }
 
-  picture {
-    padding-inline: 2em;
-  }
+
+
   .hero-text {
     padding: 4em;
-    @media (max-width: 1200px) {
+    @media screen and (max-width: 1200px) {
       & {
         padding: 2em;
       }
@@ -57,7 +56,8 @@ import smallLogo from "../assets/BTGSmall.svg"
   .hero-logo {
     height: 200px;
     max-width: unset;
-    @media (max-width: 1200px) {
+    padding-inline: 2em;
+    @media screen and (max-width: 1200px) {
       & {
         padding-top: 2em;
         max-width: 100%;
