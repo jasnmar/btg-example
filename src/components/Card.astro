@@ -1,0 +1,90 @@
+---
+import ButtonLink from "./ButtonLink.astro"
+
+//The idea is that this is a common card that can be used in a lot of
+//different cases. Right now there's copy pasta in items and policies.
+
+interface Props {
+  image?: string
+  title: string
+  description?: string
+  links?: {
+    href: string
+    text: string
+    variant?: "primary" | "secondary" | undefined
+  }[]
+}
+
+const { image, title, description, links } = Astro.props
+console.log('links: ', links)
+
+---
+
+<div class="card">
+  <img src={image} alt={title} />
+  <div>
+    <h3>{title}</h3>
+    <p class="description">{description}</p>
+    <div class="button-container">
+      {links && links.map((link) => (
+        <ButtonLink
+          href={link.href}
+          text={link.text}
+          variant={link.variant}
+        />
+      ))}
+
+    </div>
+  </div>
+</div>
+
+
+
+<style>
+  .card {
+    overflow: hidden;
+    display: flex;
+    gap: 2em;
+    margin-bottom:2em;
+
+    h3 {
+      font-size: 30px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .description {
+      margin-bottom: 2em;
+    }
+
+    img {
+      height: 15em;
+      width: 15em;
+      object-fit: cover;
+    }
+
+    .button-container {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+      
+    }
+
+    @media screen and (width <  800px) {
+      & {
+        flex-direction: column;
+      }
+
+      img {
+        align-self: center;
+      }
+    }
+
+    @media screen and  (width < 600px) {
+      .button-container {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  }
+</style>
