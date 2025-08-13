@@ -2,16 +2,15 @@
 import Section from "./Section.astro"
 import Airtable from "./Airtable.astro"
 
-const isDev = import.meta.env.DEV
+const isDev = import.meta.env.DEV      
 // const isDev = false
-console.log(isDev)
+// console.log(isDev)
 
 ---
 
 <Section dark={true} id="contact">
   <h2>Ways to contact us</h2>
   {isDev ? "" : <Airtable />}
-
 </Section>
 
 

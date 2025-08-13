@@ -9,10 +9,13 @@ import Section from "../components/Section.astro"
 ---
 
 <Section main={true} id="home">
-  <div class="hero">
-    <picture >
+  <div tabindex="0" class="hero">
+    <picture>
       <source srcset={smallLogo.src} media="(width > 1200px)" />
-      <source srcset={smallLogo.src} media="(width < 1200px) and (width < 300px" />
+      <source
+        srcset={smallLogo.src}
+        media="(width < 1200px) and (width < 300px"
+      />
       <source srcset={smallLogo.src} media="(width < 300px)" />
       <img class="hero-logo" src={heroLogo.src} alt="Build to Give Logo" />
     </picture>
@@ -39,16 +42,28 @@ import Section from "../components/Section.astro"
     justify-content: center;
     align-items: center;
 
-    @media screen and (width < 1200px) {
-      flex-direction: column;
+    @container main (width < 1200px) {
+      & {
+        flex-direction: column;
+      }
+    }
+    @container section (width < 1200px) {
+      & {
+        flex-direction: column;
+      }
     }
   }
 
-
-
   .hero-text {
     padding: 4em;
-    @media screen and (width < 1200px) {
+
+    @container main (width < 1200px) {
+      & {
+        padding: 2em;
+      }
+    }
+
+    @container section (width < 1200px) {
       & {
         padding: 2em;
       }
@@ -59,17 +74,34 @@ import Section from "../components/Section.astro"
     height: 200px;
     max-width: unset;
     padding-inline: 2em;
-    @media screen and (width < 1200px) {
+
+    @container main (width < 1200px) {
       & {
         padding-top: 2em;
         max-width: 100%;
       }
-    }
-    @media screen and (width < 600px) {
-      & {
-        padding-top: 1em;
-        max-width: 100%;
-        height: 100px;
+      /* Currently the hero is only in the main section, but it could conceptually be anywere. */
+      @container section (width < 1200px) {
+        & {
+          padding-top: 2em;
+          max-width: 100%;
+        }
+      }
+
+      @container main (width < 600px) {
+        & {
+          padding-top: 1em;
+          max-width: 100%;
+          height: 100px;
+        }
+      }
+      /* Currently the hero is only in the main section, but it could conceptually be anywere. */
+      @container section (width < 600px) {
+        & {
+          padding-top: 1em;
+          max-width: 100%;
+          height: 100px;
+        }
       }
     }
   }

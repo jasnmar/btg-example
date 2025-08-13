@@ -41,7 +41,7 @@ const { href, text, variant = "primary", isDownload = false } = Astro.props
     background-color:var(--clr-accent);
     width: 100%;
     border-radius: calc(var(--border-radius) + calc(var(--border-width) / 2));
-    &:hover {
+    &:hover, &:focus {
       background-image: conic-gradient(
       from var(--angle),
       var(--clr-darkest) 8%,

@@ -16,6 +16,13 @@ const project = defineCollection({
           variant: z.enum(["primary", "secondary"]).optional()
         })
       )
+      .optional(),
+    tags: z
+      .array(
+        z.object({
+          name: z.string()
+        })
+      )
       .optional()
   })
 })

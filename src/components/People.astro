@@ -28,4 +28,12 @@ const people = await getCollection("profile")
     flex-wrap: wrap;
     gap: 2em;
   }
+
+  @container section (width > 600px) {
+    .people-container {
+      justify-content: flex-start;
+    }
+  }
+
+
 </style>

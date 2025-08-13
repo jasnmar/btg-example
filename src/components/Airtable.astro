@@ -3,7 +3,7 @@
 // to deal with in dev, so I'm splitting them out so that they can be disabled.
 ---
 
-<div data-id="volForm" id="volunteer" class="expandbutton">
+<div data-id="volForm" tabindex="0" role="button" id="volunteer" class="expandbutton">
   <h3 data-id="volForm">Volunteer with Us</h3>
 </div>
 <iframe
@@ -12,7 +12,7 @@
   class="airtable-embed volForm collapse"
   src="https://airtable.com/embed/appD77SpIDa1e09ID/paga2bi1GDpipbGn7/form"
   width="100%"></iframe>
-<div data-id="helpForm" id="help" class="expandbutton">
+<div data-id="helpForm"  tabindex="0" role="button"    id="help" class="expandbutton">
   <h3 data-id="helpForm">Help Us Help You</h3>
 </div>
 <iframe
@@ -44,8 +44,10 @@
 
   const volDiv = document.getElementById("volunteer")
   volDiv?.addEventListener("click", expandClick)
+  volDiv?.addEventListener("keydown", expandClick)
   const helpDiv = document.getElementById("help")
   helpDiv?.addEventListener("click", expandClick)
+  helpDiv?.addEventListener("keydown", expandClick)
 </script>
 
 
@@ -72,6 +74,9 @@
     transition: height 1s ease-in;
   }
 
+  /* I don't love explicitly setting the heights of these,
+  but I also don't love the implementation of these. At some point
+  I plan to build native contact forms */
   .volForm {
     height:700px;
   }
