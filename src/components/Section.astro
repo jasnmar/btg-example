@@ -31,18 +31,26 @@ const classNames = dark ? "dark" : ""
   section {
     padding-block: 80px;
     background-color: var(--primary);
+    container-type: inline-size;
+    container-name: section;
 
     @media screen and (width < 1200px) {
       & {
-        padding-block: 40px;
+        padding-block: clamp(3rem, 10vw, 5rem);
       }
     }
+
     @media screen and (width < 600px) {
       & {
-        padding-block: 20px;
+        padding-block: clamp(1.5rem, 10vw, 3rem);
       }
     }
   }
+  main {
+    container-type: inline-size;
+    container-name: main;
+  }
+
   .dark {
     background-color: var(--clr-darkest);
     color: var(--clr-lightest);
