@@ -7,17 +7,38 @@ import { getCollection } from "astro:content"
 const services = await getCollection("services")
 ---
 
-<Section id="services">
-  <h2>What we offer</h2>
+<Section id="services" varient="dark">
+  <h2>Services</h2>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod vel
+    accusantium sunt rerum voluptates quam, odio ex excepturi eius labore
+    pariatur magni nisi laudantium consequatur maxime assumenda adipisci est
+    ipsum!
+  </p>
   <div class="service-list">
-    {services.map((service) => <Pill tooltip={service.data.description}>{service.data.title}</Pill>)}
+    {
+      services.map((service) => (
+        <Pill tooltip={service.data.description}>{service.data.title}</Pill>
+      ))
+    }
   </div>
 </Section>
 
 <style>
+  h2 {
+    font-size: 3em;
+    text-align: center;
+  }
+  p {
+    padding-bottom: 2em;
+    text-align: center;
+    
+  }
   .service-list {
     display: flex;
     flex-wrap: wrap;
     gap: 1em;
+    justify-content: center;
+
   }
 </style>
