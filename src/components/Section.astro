@@ -2,15 +2,21 @@
 import Container from "./Container.astro"
 
 interface Props {
-  dark?: boolean
+  varient?: string
   main?: boolean
   id?: string
 }
 
-const { dark = false } = Astro.props
+//Varients primary (default), dark, secondary, 
 const { main = false } = Astro.props
 const { id = "" } = Astro.props
-const classNames = dark ? "dark" : ""
+const { varient = "primary" } = Astro.props
+const classNames = 
+varient=== 
+  "dark" ? "dark" : 
+varient=== 
+  "secondary" ? "secondary" : ""
+
 ---
 
 {
@@ -54,5 +60,9 @@ const classNames = dark ? "dark" : ""
   .dark {
     background-color: var(--clr-darkest);
     color: var(--clr-lightest);
+  }
+  .secondary {
+    background-color: var(--clr-light);
+    color: var(--clr-darkest);
   }
 </style>
