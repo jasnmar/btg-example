@@ -1,13 +1,12 @@
 ---
 import { getCollection } from "astro:content"
-import Section from "./Section.astro"
-import ButtonLink from "./ButtonLink.astro"
-import Card from "./Card.astro"
+import Section from "../components//Section.astro"
+import Card from "../components//Card.astro"
 
 const projects = await getCollection("project")
 ---
 
-<Section dark={true} id="projects">
+<Section varient="dark" id="projects">
   <h2>Our Projects</h2>
 
   <div class="card-container">

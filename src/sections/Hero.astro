@@ -1,5 +1,7 @@
 ---
 import { getImage } from "astro:assets"
+import { Image } from "astro:assets"
+
 
 import codeImage from "../assets/code.webp"
 import codeMedium from "../assets/codeMedium.webp"
@@ -19,17 +21,15 @@ if(!topLogo) {
   heroAlign="left"
 }
 
+
+
 ---
 
 <Section main={true} id="home">
   <div tabindex="0" class="hero">
     <!-- Background -->
-    <picture class="background-image">
-      <source srcset={codeImage.src} media="(min-width: 2000px)" />
-      <source srcset={codeMedium.src} media="(min-width: 400px)" />
-      <source srcset={codeSmall.src} media="(min-width: 100px)" />
-      <img src={codeImage.src} alt="" />
-    </picture>
+    <!-- This is really slow in Dev, but fine in prod -->
+    <Image src={codeImage} alt="code" class="background-image" />
     <!-- Content -->
     <div class="hero-content">
       {topLogo && 
@@ -76,6 +76,7 @@ if(!topLogo) {
     @container hero (width < 1200px) {
       & {
         flex-direction: column;
+        
       }
     }
     @container section (width < 1200px) {
@@ -92,6 +93,7 @@ if(!topLogo) {
     z-index: -1;
     width: 100%;
     height: 100%;
+    background:var(--clr-darkest);
   }
 
   .background-image img {
@@ -107,6 +109,7 @@ if(!topLogo) {
     @container main (width < 1200px) {
       & {
         padding: 2em;
+        text-align: center;
       }
     }
 
@@ -118,10 +121,8 @@ if(!topLogo) {
   }
 
   .hero-logo {
-    /* height: 200px; */
     max-width: unset;
     padding-inline: 2em;
-    /* width:100%; */
     height: 100%;
 
     @container main (width < 1200px) {
