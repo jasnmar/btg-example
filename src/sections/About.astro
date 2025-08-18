@@ -1,8 +1,8 @@
 ---
 import Section from "../components/Section.astro"
-import ButtonLink from "./ButtonLink.astro"
+import ButtonLink from "../components/ButtonLink.astro"
 import { getCollection } from "astro:content"
-import Person from "../components/Person.astro"
+
 
 const people = await getCollection("profile")
 ---
