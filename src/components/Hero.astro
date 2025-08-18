@@ -11,7 +11,7 @@ import Section from "../components/Section.astro"
 
 const optimizedBackground = await getImage({ src: codeImage })
 
-const topLogo = false;
+const topLogo = true;
 let heroAlign
 if(!topLogo) {
   heroAlign="center"
@@ -34,12 +34,18 @@ if(!topLogo) {
     <div class="hero-content">
       {topLogo && 
       <picture>
-        <source srcset={smallLogo.src} media="(width > 1200px)" />
-        <source
-          srcset={smallLogo.src}
-          media="(width < 1200px) and (width < 300px)"
+        <source 
+          srcset={smallLogo.src} 
+          media="(width > 1200px)" 
         />
-        <source srcset={smallLogo.src} media="(width < 300px)" />
+        <source
+          srcset={heroLogo.src}
+          media="(width < 1200px) and (width > 300px)"
+        />
+        <source 
+          srcset={smallLogo.src} 
+          media="(width < 300px)" 
+        />
         <img class="hero-logo" src={heroLogo.src} alt="Build to Give Logo" />
       </picture>
       }
