@@ -1,54 +1,116 @@
 ---
+import { getImage } from "astro:assets"
+
 import codeImage from "../assets/code.webp"
 import codeMedium from "../assets/codeMedium.webp"
 import codeSmall from "../assets/codeSmall.webp"
 
-import heroLogo from "../assets/BTGHero.svg"
+import heroLogo from "../assets/BTGHeroLight.svg"
 import smallLogo from "../assets/BTGSmall.svg"
 import Section from "../components/Section.astro"
+
+const optimizedBackground = await getImage({ src: codeImage })
+
+const topLogo = true;
+let heroAlign
+if(!topLogo) {
+  heroAlign="center"
+} else {
+  heroAlign="left"
+}
+
 ---
 
 <Section main={true} id="home">
-  <div class="hero">
-    <picture >
-      <source srcset={smallLogo.src} media="(width > 1200px)" />
-      <source srcset={smallLogo.src} media="(width < 1200px) and (width < 300px" />
-      <source srcset={smallLogo.src} media="(width < 300px)" />
-      <img class="hero-logo" src={heroLogo.src} alt="Build to Give Logo" />
+  <div tabindex="0" class="hero">
+    <!-- Background -->
+    <picture class="background-image">
+      <source srcset={codeImage.src} media="(min-width: 2000px)" />
+      <source srcset={codeMedium.src} media="(min-width: 400px)" />
+      <source srcset={codeSmall.src} media="(min-width: 100px)" />
+      <img src={codeImage.src} alt="" />
     </picture>
-    <div class="hero-text">
-      <h1>
-        BuildToGive connects early-career tech professionals with nonprofits to
-        build digital tools, grow real-world skills, foster community, and make
-        the world a little better.
-      </h1>
+    <!-- Content -->
+    <div class="hero-content">
+      {topLogo && 
+      <picture>
+        <source 
+          srcset={smallLogo.src} 
+          media="(width > 1200px)" 
+        />
+        <source
+          srcset={heroLogo.src}
+          media="(width < 1200px) and (width > 300px)"
+        />
+        <source 
+          srcset={smallLogo.src} 
+          media="(width < 300px)" 
+        />
+        <img class="hero-logo" src={heroLogo.src} alt="Build to Give Logo" />
+      </picture>
+      }
+      <div class="hero-text">
+        <h1>
+          BuildToGive connects early-career tech professionals with nonprofits
+          to build digital tools, grow real-world skills, foster community, and
+          make the world a little better.
+        </h1>
+      </div>
     </div>
   </div>
-  <picture class="hero-image">
-    <source srcset={codeImage.src} media="(min-width: 2000px)" />
-    <source srcset={codeMedium.src} media="(min-width: 400px)" />
-    <source srcset={codeSmall.src} media="(min-width: 100px)" />
-    <img src={codeImage.src} alt="" />
-  </picture>
 </Section>
 
-<style>
+<style define:vars={{heroAlign}}>
   .hero {
+    position: relative;
+    container-type: inline-size;
+    container-name: hero;
+    overflow:hidden;
+  }
+
+  .hero-content {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
-    @media screen and (width < 1200px) {
-      flex-direction: column;
+    @container hero (width < 1200px) {
+      & {
+        flex-direction: column;
+      }
+    }
+    @container section (width < 1200px) {
+      & {
+        flex-direction: column;
+      }
     }
   }
 
+  .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+  }
 
+  .background-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
   .hero-text {
     padding: 4em;
-    @media screen and (width < 1200px) {
+    color: #fff;
+    text-align: var(--heroAlign);
+    @container main (width < 1200px) {
+      & {
+        padding: 2em;
+      }
+    }
+
+    @container section (width < 1200px) {
       & {
         padding: 2em;
       }
@@ -56,25 +118,40 @@ import Section from "../components/Section.astro"
   }
 
   .hero-logo {
-    height: 200px;
+    /* height: 200px; */
     max-width: unset;
     padding-inline: 2em;
-    @media screen and (width < 1200px) {
+    /* width:100%; */
+    height: 100%;
+
+    @container main (width < 1200px) {
       & {
         padding-top: 2em;
         max-width: 100%;
       }
-    }
-    @media screen and (width < 600px) {
-      & {
-        padding-top: 1em;
-        max-width: 100%;
-        height: 100px;
+      /* Currently the hero is only in the main section, but it could conceptually be anywere. */
+      @container section (width < 1200px) {
+        & {
+          padding-top: 2em;
+          max-width: 100%;
+        }
+      }
+
+      @container main (width < 600px) {
+        & {
+          padding-top: 1em;
+          max-width: 100%;
+          height: 100px;
+        }
+      }
+      /* Currently the hero is only in the main section, but it could conceptually be anywere. */
+      @container section (width < 600px) {
+        & {
+          padding-top: 1em;
+          max-width: 100%;
+          height: 100px;
+        }
       }
     }
-  }
-
-  .hero-image {
-    width: 100%;
   }
 </style>

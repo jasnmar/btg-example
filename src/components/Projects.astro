@@ -10,7 +10,7 @@ const projects = await getCollection("project")
 <Section dark={true} id="projects">
   <h2>Our Projects</h2>
 
-  <div class="project-container">
+  <div class="card-container">
     {
       projects.map((project) => (
         <Card
@@ -18,10 +18,21 @@ const projects = await getCollection("project")
           title={project.data.title}
           description={project.data.description}
           links={project.data.links}
+          tags={project.data.tags}
         />
       ))
     }
   </div>
- 
 </Section>
 
+<style>
+  .card-container {
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+
+
+    width:100%;
+    /* background:red; */
+  }
+</style>

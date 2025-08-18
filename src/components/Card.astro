@@ -1,8 +1,31 @@
 ---
 import ButtonLink from "./ButtonLink.astro"
+import Pill from "./Pill.astro"
+
+//Typical use
+//
+//<div class="cards">
+//  things.map((thing) => (
+//    <Card
+//      image={thing.image}
+//      title={thing.title}
+//      description={thing.description}
+//      links={thing.links}
+//      tags={thing.tags}
+//    />
+//  ))
+//</div>
+//
+//<style>
+//  .cards {
+//    container-type: inline-size;
+//    container-name: cards;
+//  }
+//</style>
+//
 
 //The idea is that this is a common card that can be used in a lot of
-//different cases. Right now there's copy pasta in items and policies.
+//different cases.
 
 interface Props {
   image?: string
@@ -13,39 +36,52 @@ interface Props {
     text: string
     variant?: "primary" | "secondary" | undefined
   }[]
+  tags?: {
+    name: string
+  }[]
 }
 
-const { image, title, description, links } = Astro.props
-console.log('links: ', links)
-
+const { image, title, description, links, tags } = Astro.props
+// console.log('links: ', links)
 ---
 
-<div class="card">
-  <img src={image} alt={title} />
-  <div>
-    <h3>{title}</h3>
-    <p class="description">{description}</p>
-    <div class="button-container">
-      {links && links.map((link) => (
-        <ButtonLink
-          href={link.href}
-          text={link.text}
-          variant={link.variant}
-        />
-      ))}
-
+<div class="card-container">
+  <div class="card">
+    <img src={image} alt={title} />
+    <div class="content">
+      <h3>{title}</h3>
+      <p class="description">{description}</p>
+      <div class="links-container">
+        {
+          links &&
+            links.map((link) => (
+              <ButtonLink
+                href={link.href}
+                text={link.text}
+                variant={link.variant}
+              />
+            ))
+        }
+      </div>
+      <div class="tags-container">
+        {tags && tags.map((tag) => <Pill>{tag.name}</Pill>)}
+      </div>
     </div>
   </div>
 </div>
 
-
-
 <style>
+  .card-container {
+    container-type: inline-size;
+    container-name: cards;
+  }
   .card {
     overflow: hidden;
-    display: flex;
-    gap: 2em;
-    margin-bottom:2em;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+
 
     h3 {
       font-size: 30px;
@@ -54,35 +90,44 @@ console.log('links: ', links)
     }
 
     .description {
-      margin-bottom: 2em;
+      margin-bottom: 2rem;
     }
 
     img {
-      height: 15em;
-      width: 15em;
+      width: 100%;
       object-fit: cover;
     }
 
-    .button-container {
-      display: flex;
+    .links-container {
+      margin-block: 0.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 10px;
       margin-top: 10px;
-      
+      container-type: inline-size;
+      container-name: links;
     }
 
-    @media screen and (width <  800px) {
+    .tags-container {
+      margin-block: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    @container cards (width < 800px) {
       & {
-        flex-direction: column;
+        grid-template-columns: 1fr;
       }
-
       img {
-        align-self: center;
+        width: 50%;
+        margin: 0 auto;
       }
     }
 
-    @media screen and  (width < 600px) {
-      .button-container {
-        flex-direction: column;
+    @container cards (width < 600px) {
+      .links-container {
+        grid-template-columns: 1fr;
         gap: 10px;
       }
     }

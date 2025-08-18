@@ -1,31 +1,37 @@
 ---
 import Section from "../components/Section.astro"
+import ButtonLink from "./ButtonLink.astro"
 import { getCollection } from "astro:content"
 import Person from "../components/Person.astro"
 
 const people = await getCollection("profile")
 ---
 
-
 <Section id="people">
-  <h2>Our People</h2>
-  <div class="people-container">
-  {
-    people.map((person) => {
-      return (
-        <Person person={person} />
-        )
-    })
-  }
+  <h2>About Us</h2>
+  <div class="content-container">
+    <p class="content-text">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci vero,
+      quidem dicta eum id maiores corporis, sunt quos vel voluptas perferendis
+      ea, aliquam quo exercitationem praesentium dolor. Necessitatibus, et
+      assumenda!
+    </p>
+    <ButtonLink href="#" text="Learn More">
+    </ButtonLink>
   </div>
+
 </Section>
 
 <style>
-  .people-container {
-    display:flex;
-    justify-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
+  .content-container{
+    display:grid;
+    grid-template-columns: 3fr 1fr;
     gap: 2em;
+  }
+
+  @container section (width < 600px) {
+    .content-container {
+      grid-template-columns:1fr;
+    }
   }
 </style>
