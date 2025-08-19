@@ -1,18 +1,18 @@
 ---
 import ButtonLink from "../components/ButtonLink.astro"
 import Section from "../components//Section.astro"
+import { m } from "../paraglide/messages.js"
+
 
 ---
 
 <Section varient="primary" id="contact">
-  <h2>Get Invovled</h2>
+  <h2>{m.contact_header()}</h2>
   <div class="content-container">
     <p class="content-text">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque tenetur eum,
-    amet ea aperiam quisquam ex deleniti autem facere, in ducimus nisi eos a
-    minima nobis praesentium. Libero, totam a?
+      {m.contact_description()}
   </p>
-  <ButtonLink href="#" text="Learn More" />
+  <ButtonLink href="#" text={m.contact_button_learnmore()} />
   </div>
 </Section>
 

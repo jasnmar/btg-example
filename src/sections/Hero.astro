@@ -2,16 +2,17 @@
 import { getImage } from "astro:assets"
 import { Image } from "astro:assets"
 
+import { m } from "../paraglide/messages.js"
 
 import codeImage from "../assets/code.webp"
-import codeMedium from "../assets/codeMedium.webp"
-import codeSmall from "../assets/codeSmall.webp"
 
 import heroLogo from "../assets/BTGHeroLight.svg"
 import smallLogo from "../assets/BTGSmall.svg"
 import Section from "../components/Section.astro"
 
 const optimizedBackground = await getImage({ src: codeImage })
+
+
 
 const topLogo = true;
 let heroAlign
@@ -21,15 +22,13 @@ if(!topLogo) {
   heroAlign="left"
 }
 
-
-
 ---
 
 <Section main={true} id="home">
   <div tabindex="0" class="hero">
     <!-- Background -->
     <!-- This is really slow in Dev, but fine in prod -->
-    <Image src={codeImage} alt="code" class="background-image" />
+    <Image src={codeImage} alt={m.hero_backgroundimage_alt()} class="background-image" />
     <!-- Content -->
     <div class="hero-content">
       {topLogo && 
@@ -46,14 +45,12 @@ if(!topLogo) {
           srcset={smallLogo.src} 
           media="(width < 300px)" 
         />
-        <img class="hero-logo" src={heroLogo.src} alt="Build to Give Logo" />
+        <img class="hero-logo" src={heroLogo.src} alt={m.logo_alttext()} />
       </picture>
       }
       <div class="hero-text">
         <h1>
-          BuildToGive connects early-career tech professionals with nonprofits
-          to build digital tools, grow real-world skills, foster community, and
-          make the world a little better.
+          {m.mission()}
         </h1>
       </div>
     </div>

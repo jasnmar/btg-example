@@ -1,21 +1,19 @@
 ---
 import Section from "../components/Section.astro"
 import ButtonLink from "../components/ButtonLink.astro"
+import { m } from "../paraglide/messages.js"
 import { getCollection } from "astro:content"
 
 
 ---
 
 <Section id="people">
-  <h2>About Us</h2>
+  <h2>{m.about_header()}</h2>
   <div class="content-container">
-    <p class="content-text">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci vero,
-      quidem dicta eum id maiores corporis, sunt quos vel voluptas perferendis
-      ea, aliquam quo exercitationem praesentium dolor. Necessitatibus, et
-      assumenda!
+    <p class="content-text"> 
+      {m.about_description()}
     </p>
-    <ButtonLink href="#" text="Learn More">
+    <ButtonLink href="#" text={m.about_button_learnmore()}>
     </ButtonLink>
   </div>
 
