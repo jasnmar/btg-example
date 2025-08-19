@@ -17,7 +17,7 @@ const year = today.getFullYear()
           media="(width < 1200px) and (width > 300px)"
         />
         <source srcset={smallLogo.src} media="(width < 300px)" />
-        <img class="hero-logo" src={heroLogo.src} alt={strings["logo.alttext"]} />
+        <img class="hero-logo" src={heroLogo.src} alt={strings["logo_alttext"]} />
       </picture>
     </div>
     <div class="vision">
@@ -27,17 +27,17 @@ const year = today.getFullYear()
     </div>
   </div>
   <div class="column">
-    <a class="main-link" href="#">{strings["letsbuild.header"]}</a>
+    <a class="main-link" href="#">{strings["letsbuild_header"]}</a>
   </div>
   <div class="column">
     <div class="spread">
-      <a href="#" class="main-link">{strings["getinvolved.header"]}</a>
-      <a href="#" class="secondary-link">{strings["footer.privacy"]}</a>
+      <a href="#" class="main-link">{strings["getinvolved_header"]}</a>
+      <a href="#" class="secondary-link">{strings["footer_privacy"]}</a>
     </div>
   </div>
   <div class="column">
     <div class="spread">
-      <a href="#" class="main-link">{strings["about.header"]}</a>
+      <a href="#" class="main-link">{strings["about_header"]}</a>
 
       <div class="social">
         <a href="#" name="linkedin" aria-label="linkedin" target="_blank">
@@ -57,13 +57,13 @@ const year = today.getFullYear()
           >
         </a>
       </div>
-      <a href="#" class="secondary-link">{strings["footer.terms"]}</a>
+      <a href="#" class="secondary-link">{strings["footer_terms"]}</a>
     </div>
   </div>
 
   <div class="bottom-container">
     <div class="copyright">
-      <small>&copy;{year} {strings["footer.copyright"]}</small>
+      <small>&copy;{year} {strings["footer_copyright"]}</small>
     </div>
   </div>
 </footer>
