@@ -1,11 +1,9 @@
 ---
 import { getImage } from "astro:assets"
 import { Image } from "astro:assets"
-
+import strings from "../data/strings.json"
 
 import codeImage from "../assets/code.webp"
-import codeMedium from "../assets/codeMedium.webp"
-import codeSmall from "../assets/codeSmall.webp"
 
 import heroLogo from "../assets/BTGHeroLight.svg"
 import smallLogo from "../assets/BTGSmall.svg"
@@ -21,15 +19,13 @@ if(!topLogo) {
   heroAlign="left"
 }
 
-
-
 ---
 
 <Section main={true} id="home">
   <div tabindex="0" class="hero">
     <!-- Background -->
     <!-- This is really slow in Dev, but fine in prod -->
-    <Image src={codeImage} alt="code" class="background-image" />
+    <Image src={codeImage} alt={strings["hero.backgroundimage.alt"]} class="background-image" />
     <!-- Content -->
     <div class="hero-content">
       {topLogo && 
@@ -51,9 +47,7 @@ if(!topLogo) {
       }
       <div class="hero-text">
         <h1>
-          BuildToGive connects early-career tech professionals with nonprofits
-          to build digital tools, grow real-world skills, foster community, and
-          make the world a little better.
+          {strings["mission"]}
         </h1>
       </div>
     </div>

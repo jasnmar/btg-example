@@ -1,6 +1,7 @@
 ---
 import heroLogo from "../assets/BTGHero.svg"
 import smallLogo from "../assets/BTGSmall.svg"
+import strings from "../data/strings.json"
 
 const today = new Date()
 const year = today.getFullYear()
@@ -21,24 +22,22 @@ const year = today.getFullYear()
     </div>
     <div class="vision">
       <p>
-        BuildToGive connects early-career tech professionals with nonprofits to
-        build digital tools, grow real-world skills, foster community, and make
-        the world a little better.
+        {strings["mission"]}
       </p>
     </div>
   </div>
   <div class="column">
-    <a class="main-link"href="#">Let's Build</a>
+    <a class="main-link" href="#">{strings["letsbuild.header"]}</a>
   </div>
   <div class="column">
     <div class="spread">
-      <a href="#" class="main-link">Get Involved</a>
-      <a href="#" class="secondary-link">Privacy and Policy</a>
+      <a href="#" class="main-link">{strings["getinvolved.header"]}</a>
+      <a href="#" class="secondary-link">{strings["footer.privacy"]}</a>
     </div>
   </div>
   <div class="column">
     <div class="spread">
-      <a href="#" class="main-link">About Us</a>
+      <a href="#" class="main-link">{strings["about.header"]}</a>
 
       <div class="social">
         <a href="#" name="linkedin" aria-label="linkedin" target="_blank">
@@ -58,13 +57,13 @@ const year = today.getFullYear()
           >
         </a>
       </div>
-      <a href="#" class="secondary-link">Terms and Conditions</a>
+      <a href="#" class="secondary-link">{strings["footer.terms"]}</a>
     </div>
   </div>
 
   <div class="bottom-container">
     <div class="copyright">
-      <small>&copy;{year} Build To Give. All rights reserved.</small>
+      <small>&copy;{year} {strings["footer.copyright"]}</small>
     </div>
   </div>
 </footer>
@@ -81,7 +80,7 @@ const year = today.getFullYear()
     bottom: 0;
     background-color: var(--clr-accent);
     padding-top: 1em;
-    padding-inline:3em;
+    padding-inline: 3em;
     container-type: inline-size;
     container-name: footer;
 
@@ -93,7 +92,7 @@ const year = today.getFullYear()
 
     .hero-logo {
       height: 4em;
-      margin-bottom:1em;
+      margin-bottom: 1em;
     }
 
     .column {
@@ -122,7 +121,7 @@ const year = today.getFullYear()
     }
 
     .secondary-link {
-      font-size: .75em;
+      font-size: 0.75em;
     }
     .copyright {
       padding-left: 0.5rem;

@@ -2,15 +2,16 @@
 import HeroLogo from "../assets/BTGHero.svg"
 import Language from "../components/Language.astro"
 import Theme from "../components/Theme.astro"
+import strings from "../data/strings.json"
 ---
 
 <header>
   <nav>
     <HeroLogo class="hero-logo" />
     <ul>
-      <li><a href="#">Let's Build</a></li>
-      <li><a href="#">Get Involved</a></li>
-      <li><a href="#">About Us</a></li>
+      <li><a href="#">{strings["letsbuild.header"]}</a></li>
+      <li><a href="#">{strings["getinvolved.header"]}</a></li>
+      <li><a href="#">{strings["about.header"]}</a></li>
       <li><Language /></li>
       <li><Theme /></li>
     </ul>

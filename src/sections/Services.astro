@@ -1,6 +1,7 @@
 ---
 import Section from "../components/Section.astro"
 import Pill from "../components/Pill.astro"
+import strings from "../data/strings.json"
 
 import { getCollection } from "astro:content"
 
@@ -8,12 +9,9 @@ const services = await getCollection("services")
 ---
 
 <Section id="services" varient="dark">
-  <h2>Services</h2>
+  <h2>{strings["services.header"]}</h2>
   <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod vel
-    accusantium sunt rerum voluptates quam, odio ex excepturi eius labore
-    pariatur magni nisi laudantium consequatur maxime assumenda adipisci est
-    ipsum!
+    {strings["services.description"]}
   </p>
   <div class="service-list">
     {
