@@ -2,16 +2,16 @@
 import HeroLogo from "../assets/BTGHero.svg"
 import Language from "../components/Language.astro"
 import Theme from "../components/Theme.astro"
-import strings from "../data/strings.json"
+import { m } from "../paraglide/messages.js"
 ---
 
 <header>
   <nav>
     <HeroLogo class="hero-logo" />
     <ul>
-      <li><a href="#">{strings["letsbuild_header"]}</a></li>
-      <li><a href="#">{strings["getinvolved_header"]}</a></li>
-      <li><a href="#">{strings["about_header"]}</a></li>
+      <li><a href="#">{m.letsbuild_header()}</a></li>
+      <li><a href="#">{m.getinvolved_header()}</a></li>
+      <li><a href="#">{m.about_header()}</a></li>
       <li><Language /></li>
       <li><Theme /></li>
     </ul>

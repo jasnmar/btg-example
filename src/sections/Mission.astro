@@ -1,12 +1,13 @@
 ---
 import Section from "../components/Section.astro"
 import strings from "../data/strings.json"
+import { m } from "../paraglide/messages.js"
 ---
 
 <Section id="vision" varient="secondary">
-  <h2>{strings["mission_header"]}</h2>
+  <h2>{m.mission_header()}</h2>
   <p>
-    {strings["mission"]}
+    {m.mission()}
   </p>
 </Section>
 

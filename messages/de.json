@@ -1,0 +1,22 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "example_message": "Hallo Welt {Benutzername}",
+  "mission": "Buildtogive verbindet Tech-Fachleute für Frühkarriere mit gemeinnützigen Organisationen, um digitale Tools aufzubauen, echte Fähigkeiten zu erweitern, die Community zu fördern und die Welt ein wenig besser zu machen",
+  "mission_header": "Leitbild",
+  "vision": "Um eine großzügigere, integrativere und technisch fähige Welt aufzubauen, in der Fachleute für Frühkarriere durch Service wachsen und gemeinnützige Organisationen mit wirkungsvollen Tools gedeihen.",
+  "about_header": "Über uns",
+  "about_description": "Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. ",
+  "about_button_learnmore": "Erfahren Sie mehr",
+  "contact_header": "Sich invovieren lassen",
+  "contact_description": "Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. ",
+  "contact_button_learnmore": "Erfahren Sie mehr",
+  "footer_privacy": "Privatsphäre und Politik",
+  "footer_terms": "Geschäftsbedingungen",
+  "logo_alttext": "Bauen, um Logo zu geben",
+  "footer_copyright": "Bauen, um zu geben. ",
+  "getinvolved_header": "Sich beteiligen",
+  "hero_backgroundimage_alt": "Code",
+  "letsbuild_header": "Lass uns bauen",
+  "services_header": "Dienstleistungen",
+  "services_description": "Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. "
+}

@@ -1,17 +1,18 @@
 ---
 import ButtonLink from "../components/ButtonLink.astro"
 import Section from "../components//Section.astro"
-import strings from "../data/strings.json"
+import { m } from "../paraglide/messages.js"
+
 
 ---
 
 <Section varient="primary" id="contact">
-  <h2>{strings["contact_header"]}</h2>
+  <h2>{m.contact_header()}</h2>
   <div class="content-container">
     <p class="content-text">
-      {strings["contact_description"]}
+      {m.contact_description()}
   </p>
-  <ButtonLink href="#" text={strings["contact_button_learnmore"]} />
+  <ButtonLink href="#" text={m.contact_button_learnmore()} />
   </div>
 </Section>
 

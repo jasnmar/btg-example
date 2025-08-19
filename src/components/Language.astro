@@ -1,6 +1,26 @@
 ---
 ---
 
+<p id="lang-button">Eng</p>
 
+<script>
+  import { setLocale, getLocale } from "../paraglide/runtime"
+  const langButton = document.getElementById("lang-button")
+  let newLang: "en" | "de" = "en"
+  if (langButton) {
+    // This is a bit of a hack, but it works for now.
+    // We only have two languages, so we can just toggle between them.
+    // If we had more languages, we would need a more robust solution.
+    if (getLocale() === "en") {
+      newLang = "de"
+      langButton.textContent = "Deutsch"
+    } else {
+      newLang = "en"
+      langButton.textContent = "English"
+    }
 
-<p>Eng</p>
+    langButton.addEventListener("click", () => {
+      setLocale(newLang)
+    })
+  }
+</script>

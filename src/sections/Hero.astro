@@ -1,7 +1,8 @@
 ---
 import { getImage } from "astro:assets"
 import { Image } from "astro:assets"
-import strings from "../data/strings.json"
+
+import { m } from "../paraglide/messages.js"
 
 import codeImage from "../assets/code.webp"
 
@@ -10,6 +11,8 @@ import smallLogo from "../assets/BTGSmall.svg"
 import Section from "../components/Section.astro"
 
 const optimizedBackground = await getImage({ src: codeImage })
+
+
 
 const topLogo = true;
 let heroAlign
@@ -25,7 +28,7 @@ if(!topLogo) {
   <div tabindex="0" class="hero">
     <!-- Background -->
     <!-- This is really slow in Dev, but fine in prod -->
-    <Image src={codeImage} alt={strings["hero_backgroundimage_alt"]} class="background-image" />
+    <Image src={codeImage} alt={m.hero_backgroundimage_alt()} class="background-image" />
     <!-- Content -->
     <div class="hero-content">
       {topLogo && 
@@ -42,12 +45,12 @@ if(!topLogo) {
           srcset={smallLogo.src} 
           media="(width < 300px)" 
         />
-        <img class="hero-logo" src={heroLogo.src} alt={strings["logo_alttext"]} />
+        <img class="hero-logo" src={heroLogo.src} alt={m.logo_alttext()} />
       </picture>
       }
       <div class="hero-text">
         <h1>
-          {strings["mission"]}
+          {m.mission()}
         </h1>
       </div>
     </div>
