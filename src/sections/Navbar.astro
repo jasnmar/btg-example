@@ -1,0 +1,45 @@
+---
+import HeroLogo from "../assets/BTGHero.svg"
+import Language from "../components/Language.astro"
+import Theme from "../components/Theme.astro"
+---
+
+<header>
+  <nav>
+    <HeroLogo class="hero-logo" />
+    <ul>
+      <li><a href="#">Let's Build</a></li>
+      <li><a href="#">Get Involved</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><Language /></li>
+      <li><Theme /></li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5em 1em;
+
+    .hero-logo {
+      max-height: 3em;
+      width: 10em;
+      margin-right: 0;
+      justify-self: start;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: row;
+      gap: 1em;
+    }
+    
+    li {
+      list-style: none;
+    }
+  }
+</style>
