@@ -63,6 +63,7 @@ if(!topLogo) {
     container-type: inline-size;
     container-name: hero;
     overflow:hidden;
+    margin-top:3em;
   }
 
   .hero-content {
@@ -124,20 +125,20 @@ if(!topLogo) {
 
     @container main (width < 1200px) {
       & {
-        padding-top: 2em;
+        padding-top: 3em;
         max-width: 100%;
       }
       /* Currently the hero is only in the main section, but it could conceptually be anywere. */
       @container section (width < 1200px) {
         & {
-          padding-top: 2em;
+          padding-top: 3em;
           max-width: 100%;
         }
       }
 
       @container main (width < 600px) {
         & {
-          padding-top: 1em;
+          padding-top: 3em;
           max-width: 100%;
           height: 100px;
         }
@@ -145,7 +146,7 @@ if(!topLogo) {
       /* Currently the hero is only in the main section, but it could conceptually be anywere. */
       @container section (width < 600px) {
         & {
-          padding-top: 1em;
+          padding-top: 3em;
           max-width: 100%;
           height: 100px;
         }
