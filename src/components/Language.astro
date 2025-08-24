@@ -7,17 +7,16 @@ import languageList from "../data/languages.json" assert { type: "json" }
 
 //languages available has both short and long form language names
 //in the form {abbr: "en", name: "English"}
-console.log("availableLocales: ", availableLocales)
 const languagesAvailable: { abbr: string; name: string }[] = []
 availableLocales.forEach((element) => {
   const langObj = { abbr: element, name: languageList[element] }
   languagesAvailable.push(langObj)
 })
-console.log(JSON.stringify(languagesAvailable))
+
 
 //Gets the current locale from paraglide
 const currentLocale = getLocale()
-console.log('currentLocale: ', currentLocale)
+
 
 const languageName = availableLocales.find((locale) => locale === currentLocale)
 // console.log("languageName: ", languageName)
