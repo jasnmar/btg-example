@@ -1,26 +1,50 @@
 ---
+import Dropdown from "../components/Dropdown.astro"
+//availablelocales is the short form list of languages that our translation supports
+import { getLocale, locales as availableLocales } from "../paraglide/runtime.js"
+//languagelist is just a static list of short form language names and full names
+import languageList from "../data/languages.json" assert { type: "json" }
+
+//languages available has both short and long form language names
+//in the form {abbr: "en", name: "English"}
+console.log("availableLocales: ", availableLocales)
+const languagesAvailable: { abbr: string; name: string }[] = []
+availableLocales.forEach((element) => {
+  const langObj = { abbr: element, name: languageList[element] }
+  languagesAvailable.push(langObj)
+})
+console.log(JSON.stringify(languagesAvailable))
+
+//Gets the current locale from paraglide
+const currentLocale = getLocale()
+console.log('currentLocale: ', currentLocale)
+
+const languageName = availableLocales.find((locale) => locale === currentLocale)
+// console.log("languageName: ", languageName)
+
+const initialText = languageName
 ---
 
-<p id="lang-button">Eng</p>
+<Dropdown
+  id="lang-dropdown"
+  selected={languageName}
+  options={languagesAvailable}
+/>
 
 <script>
-  import { setLocale, getLocale } from "../paraglide/runtime"
-  const langButton = document.getElementById("lang-button")
-  let newLang: "en" | "de" = "en"
-  if (langButton) {
-    // This is a bit of a hack, but it works for now.
-    // We only have two languages, so we can just toggle between them.
-    // If we had more languages, we would need a more robust solution.
-    if (getLocale() === "en") {
-      newLang = "de"
-      langButton.textContent = "Deutsch"
-    } else {
-      newLang = "en"
-      langButton.textContent = "English"
-    }
+  import { setLocale } from "../paraglide/runtime.js"
 
-    langButton.addEventListener("click", () => {
-      setLocale(newLang)
-    })
-  }
+  document.addEventListener("DOMContentLoaded", () => {
+    const langButton = document.getElementById(
+      "lang-dropdown"
+    ) as HTMLElement | null
+    if (langButton) {
+      langButton.addEventListener("click", (e) => {
+        const newLang = langButton.dataset.selection
+        if (newLang) {
+          setLocale(newLang as "en" | "de" | "es")
+        }
+      })
+    }
+  })
 </script>

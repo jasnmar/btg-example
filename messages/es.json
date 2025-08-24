@@ -1,0 +1,22 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "example_message": "Hola mundo {nombre}",
+  "mission": "BuildTogive conecta a los profesionales de la tecnología de carrera temprana con organizaciones sin fines de lucro para construir herramientas digitales, cultivar habilidades del mundo real, fomentar la comunidad y hacer que el mundo sea un poco mejor",
+  "mission_header": "Declaración de misión",
+  "vision": "Para construir un mundo más generoso, inclusivo y habilitado para la tecnología, donde los profesionales de la carrera temprana crecen a través de servicios y organizaciones sin fines de lucro prosperar con herramientas impactantes.",
+  "about_header": "Sobre nosotros",
+  "about_description": "Lorem ipsum dolor sit amet consectetur adipising elit. ",
+  "about_button_learnmore": "Obtenga más información",
+  "contact_header": "Ser inventado",
+  "contact_description": "Lorem ipsum dolor sit amet consectetur adipising elit. ",
+  "contact_button_learnmore": "Obtenga más información",
+  "footer_privacy": "Privacidad y política",
+  "footer_terms": "Términos y condiciones",
+  "logo_alttext": "Build para dar el logotipo",
+  "footer_copyright": "Construir para dar. ",
+  "getinvolved_header": "Complicarse",
+  "hero_backgroundimage_alt": "Código",
+  "letsbuild_header": "Vamos a construir",
+  "services_header": "Servicios",
+  "services_description": "Lorem ipsum dolor sit amet consectetur adipising elit. "
+}
