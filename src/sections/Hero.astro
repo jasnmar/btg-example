@@ -1,15 +1,18 @@
 ---
 import { getImage } from "astro:assets"
+import { Image } from "astro:assets"
+
+import { m } from "../paraglide/messages.js"
 
 import codeImage from "../assets/code.webp"
-import codeMedium from "../assets/codeMedium.webp"
-import codeSmall from "../assets/codeSmall.webp"
 
 import heroLogo from "../assets/BTGHeroLight.svg"
 import smallLogo from "../assets/BTGSmall.svg"
 import Section from "../components/Section.astro"
 
 const optimizedBackground = await getImage({ src: codeImage })
+
+
 
 const topLogo = true;
 let heroAlign
@@ -24,12 +27,8 @@ if(!topLogo) {
 <Section main={true} id="home">
   <div tabindex="0" class="hero">
     <!-- Background -->
-    <picture class="background-image">
-      <source srcset={codeImage.src} media="(min-width: 2000px)" />
-      <source srcset={codeMedium.src} media="(min-width: 400px)" />
-      <source srcset={codeSmall.src} media="(min-width: 100px)" />
-      <img src={codeImage.src} alt="" />
-    </picture>
+    <!-- This is really slow in Dev, but fine in prod -->
+    <Image src={codeImage} alt={m.hero_backgroundimage_alt()} class="background-image" />
     <!-- Content -->
     <div class="hero-content">
       {topLogo && 
@@ -46,14 +45,12 @@ if(!topLogo) {
           srcset={smallLogo.src} 
           media="(width < 300px)" 
         />
-        <img class="hero-logo" src={heroLogo.src} alt="Build to Give Logo" />
+        <img class="hero-logo" src={heroLogo.src} alt={m.logo_alttext()} />
       </picture>
       }
       <div class="hero-text">
         <h1>
-          BuildToGive connects early-career tech professionals with nonprofits
-          to build digital tools, grow real-world skills, foster community, and
-          make the world a little better.
+          {m.mission()}
         </h1>
       </div>
     </div>
@@ -66,6 +63,7 @@ if(!topLogo) {
     container-type: inline-size;
     container-name: hero;
     overflow:hidden;
+    margin-top:3em;
   }
 
   .hero-content {
@@ -76,6 +74,7 @@ if(!topLogo) {
     @container hero (width < 1200px) {
       & {
         flex-direction: column;
+        
       }
     }
     @container section (width < 1200px) {
@@ -92,6 +91,7 @@ if(!topLogo) {
     z-index: -1;
     width: 100%;
     height: 100%;
+    background:var(--clr-darkest);
   }
 
   .background-image img {
@@ -107,6 +107,7 @@ if(!topLogo) {
     @container main (width < 1200px) {
       & {
         padding: 2em;
+        text-align: center;
       }
     }
 
@@ -118,28 +119,26 @@ if(!topLogo) {
   }
 
   .hero-logo {
-    /* height: 200px; */
     max-width: unset;
     padding-inline: 2em;
-    /* width:100%; */
     height: 100%;
 
     @container main (width < 1200px) {
       & {
-        padding-top: 2em;
+        padding-top: 3em;
         max-width: 100%;
       }
       /* Currently the hero is only in the main section, but it could conceptually be anywere. */
       @container section (width < 1200px) {
         & {
-          padding-top: 2em;
+          padding-top: 3em;
           max-width: 100%;
         }
       }
 
       @container main (width < 600px) {
         & {
-          padding-top: 1em;
+          padding-top: 3em;
           max-width: 100%;
           height: 100px;
         }
@@ -147,7 +146,7 @@ if(!topLogo) {
       /* Currently the hero is only in the main section, but it could conceptually be anywere. */
       @container section (width < 600px) {
         & {
-          padding-top: 1em;
+          padding-top: 3em;
           max-width: 100%;
           height: 100px;
         }

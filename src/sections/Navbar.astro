@@ -1,0 +1,138 @@
+---
+import Image from "astro/components/Image.astro"
+import HeroLogo from "../assets/BTGHero.svg"
+import Language from "../components/Language.astro"
+import Theme from "../components/Theme.astro"
+import hamburger from "../assets/hamburger.svg"
+import { m } from "../paraglide/messages.js"
+---
+
+<header>
+  <nav>
+    <div class="nav-top">
+      <a href="#"><HeroLogo class="hero-logo" /></a>
+      <label for="toggle"
+        ><Image class="svg" src={hamburger} alt="menu" /></label
+      >
+      <input type="checkbox" id="toggle" />
+    </div>
+
+    <ul>
+      <li><a href="#">{m.letsbuild_header()}</a></li>
+      <li><a href="#">{m.getinvolved_header()}</a></li>
+      <li><a href="#">{m.about_header()}</a></li>
+      <li><Language /></li>
+      <li><Theme /></li>
+    </ul>
+  </nav>
+</header>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggleCheckbox = document.getElementById(
+      "toggle"
+    ) as HTMLInputElement | null
+
+    if (toggleCheckbox) {
+      const handleResize = () => {
+        if (window.innerWidth > 800) {
+          toggleCheckbox.checked = false
+        }
+      }
+      window.addEventListener("resize", handleResize)
+    }
+  })
+</script>
+
+<style>
+  header {
+    container-type: inline-size;
+    container-name: navbar;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+
+    nav {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5em 1em;
+      background-color: var(--clr-lightest);
+      position: absolute;
+      width: 100%;
+
+      &:has(#toggle:checked) {
+        flex-direction: column;
+        & > ul {
+          display: flex;
+          width:100%;
+          justify-content: flex-end;
+          flex-direction: column;
+          gap: 1em;
+        }
+      }
+      @container navbar (width < 800px) {
+        .nav-top {
+          display: flex;
+          @container navbar (width < 800px) {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            gap: 1em;
+          }
+        }
+      }
+      .hero-logo {
+        max-height: 3em;
+        width: 10em;
+        margin-right: 0;
+        justify-self: start;
+      }
+
+      ul {
+        display: flex;
+        flex-direction: row;
+        gap: 1em;
+        @container navbar (width < 800px) {
+          flex-direction: column;
+          align-items: center;
+          display: none;
+
+        }
+      }
+
+      li {
+        list-style: none;
+       
+        @container navbar (width < 800px) {
+          text-align: center;
+           width:100%;
+        }
+      }
+      #toggle {
+        display: none;
+      }
+
+      #toggle:checked ~ ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+      }
+      .svg {
+        display: none;
+        cursor: pointer;
+        width: 1.5rem;
+        height: 1.5rem;
+        @container navbar (width < 800px) {
+          display: block;
+        }
+      }
+    }
+  }
+</style>

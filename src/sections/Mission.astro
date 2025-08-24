@@ -1,23 +1,21 @@
 ---
 import Section from "../components/Section.astro"
+import { m } from "../paraglide/messages.js"
 ---
 
 <Section id="vision" varient="secondary">
-  <h2>Mission Statement</h2>
+  <h2>{m.mission_header()}</h2>
   <p>
-    We are building a more generous, inclusive, and tech-enabled world where
-    early-career professionals grow through service and nonprofits thrive with
-    impactful tools.
+    {m.mission()}
   </p>
 </Section>
-
 
 <style>
   h2 {
     font-size: 3em;
     text-align: center;
   }
-  p{
+  p {
     text-align: center;
     font-weight: bold;
     font-size: clamp(1.5em, 10vw, 2em);

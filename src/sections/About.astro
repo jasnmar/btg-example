@@ -1,0 +1,34 @@
+---
+import Section from "../components/Section.astro"
+import ButtonLink from "../components/ButtonLink.astro"
+import { m } from "../paraglide/messages.js"
+import { getCollection } from "astro:content"
+
+
+---
+
+<Section id="people">
+  <h2>{m.about_header()}</h2>
+  <div class="content-container">
+    <p class="content-text"> 
+      {m.about_description()}
+    </p>
+    <ButtonLink href="#" text={m.about_button_learnmore()}>
+    </ButtonLink>
+  </div>
+
+</Section>
+
+<style>
+  .content-container{
+    display:grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 2em;
+  }
+
+  @container section (width < 600px) {
+    .content-container {
+      grid-template-columns:1fr;
+    }
+  }
+</style>

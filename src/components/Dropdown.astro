@@ -1,0 +1,113 @@
+---
+const { options, selected, id, ...rest } = Astro.props as {
+  options: { abbr?: string; name: string }[]
+  selected: string
+  id: string
+  [key: string]: any
+}
+const selectedItem =
+  options.find((option) => option.abbr === selected) || options[0]
+---
+
+<div id={id} data-selected={selected} {...rest}>
+  <div id="data-container" data-id={id} class="selected">
+    {selectedItem?.name}
+  </div>
+  <ul class="dropdown">
+    {
+      options.map((option: { name: string; abbr?: string }) => {
+        if (option.abbr === selectedItem?.abbr) return null
+        return option.abbr ? (
+          <li data-newoption={option.abbr} data-newoptionstring={option.name}>
+            <span>
+              <a href="#">{option.name}</a>
+            </span>
+          </li>
+        ) : (
+          <li data-newoption={option.name}>
+            <a href="#">{option.name}</a>
+          </li>
+        )
+      })
+    }
+  </ul>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    //This is owned by the component and used to transfer
+    //some data (the id of the parent container) to the dropdown
+    const selected: HTMLElement | null =
+      document.querySelector("#data-container")
+    //The "parent container" with the ID passed in by the parent
+    const parentId = selected?.dataset.id
+    if (parentId) {
+      const parentContainer = document.getElementById(parentId)
+      const dropdown = document.querySelector(".dropdown")
+      //If we have found all of our items
+      if (selected && dropdown && parentContainer) {
+        //If we recieve a click on the selected item
+        //Toggle the drop down menu
+        selected.addEventListener("click", () => {
+          dropdown.classList.toggle("active")
+        })
+        //Get all of the things in the dropdown menu
+        const options = document.querySelectorAll(".dropdown li")
+        //And add event listeners to them
+        options.forEach((option) => {
+          option.addEventListener("click", (e) => {
+            //get the data from the data attributes
+            const newoption = (option as HTMLElement).dataset.newoption
+            const newoptionstring = (option as HTMLElement).dataset
+              .newoptionstring
+            //Set the main text to the string provided
+            selected.textContent = newoptionstring || null
+            //Mark the selection on the parent item
+            parentContainer.dataset.selection = newoption
+            //Remove the active class from the dropdown
+            dropdown.classList.remove("active")
+          })
+        })
+      }
+    }
+  })
+</script>
+
+<style>
+  .dropdown {
+    display: none;
+    position: absolute;
+    translate: -20%;
+    background-color: var(--clr-lightest);
+    align-items: center;
+    justify-items: center;
+    padding: 0;
+    flex-direction: column;
+    align-items: center;
+    @container navbar (width < 800px) {
+      & {
+        width: 100%;
+        position: inherit;
+        translate: 0;
+      }
+    }
+
+    li {
+      padding-inline: 1em;
+      padding-block: 0.5em;
+      width: 100%;
+      @container navbar (width < 800px) {
+        background-color: var(--clr-light);
+      }
+      span {
+        border-bottom-color: var(--clr-darkest);
+        border-bottom-style: solid;
+        border-width: 2px;
+      }
+    }
+  }
+  .active {
+    display: flex;
+    gap: 0;
+  }
+</style>
