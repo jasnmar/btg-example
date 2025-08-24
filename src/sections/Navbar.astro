@@ -67,8 +67,12 @@ import { m } from "../paraglide/messages.js"
 
       &:has(#toggle:checked) {
         flex-direction: column;
-        ul {
+        & > ul {
           display: flex;
+          width:100%;
+          justify-content: flex-end;
+          flex-direction: column;
+          gap: 1em;
         }
       }
       @container navbar (width < 800px) {
@@ -98,11 +102,17 @@ import { m } from "../paraglide/messages.js"
           flex-direction: column;
           align-items: center;
           display: none;
+
         }
       }
 
       li {
         list-style: none;
+       
+        @container navbar (width < 800px) {
+          text-align: center;
+           width:100%;
+        }
       }
       #toggle {
         display: none;
