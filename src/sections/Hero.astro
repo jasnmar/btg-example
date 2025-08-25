@@ -10,11 +10,11 @@ import heroLogo from "../assets/BTGHeroLight.svg"
 import smallLogo from "../assets/BTGSmall.svg"
 import Section from "../components/Section.astro"
 
+import ButtonLink from "../components/ButtonLink.astro"
+
 const optimizedBackground = await getImage({ src: codeImage })
 
-
-
-const topLogo = true;
+const topLogo = false;
 let heroAlign
 if(!topLogo) {
   heroAlign="center"
@@ -52,6 +52,13 @@ if(!topLogo) {
         <h1>
           {m.mission()}
         </h1>
+        <p>
+          {m.mission_description()}
+        </p>
+        <div class="hero-buttons">
+          <ButtonLink variant="secondary" href="#" text="Let's Build Together" />
+          <ButtonLink href="#" text="Join Us"/>
+        </div>
       </div>
     </div>
   </div>
@@ -73,8 +80,7 @@ if(!topLogo) {
     align-items: center;
     @container hero (width < 1200px) {
       & {
-        flex-direction: column;
-        
+        flex-direction: column;      
       }
     }
     @container section (width < 1200px) {
@@ -108,6 +114,18 @@ if(!topLogo) {
       & {
         padding: 2em;
         text-align: center;
+      }
+    }
+    .hero-buttons {
+      padding;3rem;
+      width:50%;
+      margin:2rem auto;
+      display:flex;
+      flex-direction: row;
+      gap:2rem;
+      @container main (width < 800px) {
+        flex-direction: column;
+        width:100%;;
       }
     }
 

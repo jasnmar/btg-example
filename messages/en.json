@@ -2,6 +2,7 @@
   "$schema": "https://inlang.com/schema/inlang-message-format",
   "example_message": "Hello world {username}",
   "mission": "BuildToGive connects early-career tech professionals with nonprofits to build digital tools, grow real-world skills, foster community, and make the world a little better",
+  "mission_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci vero, quidem dicta eum id maiores corporis, sunt quos vel voluptas perferendis ea, aliquam quo exercitationem praesentium dolor. Necessitatibus, et assumenda!",
   "mission_header": "Mission Statement",
   "vision": "To build a more generous, inclusive, and tech-enabled world where early-career professionals grow through service and nonprofits thrive with impactful tools.",
   "about_header": "About Us",
@@ -16,7 +17,17 @@
   "footer_copyright": "Build To Give. All rights reserved.",
   "getinvolved_header": "Get Involved",
   "hero_backgroundimage_alt": "Code",
-  "letsbuild_header": "Let's Build",
-  "services_header": "Services",
-  "services_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod vel accusantium sunt rerum voluptates quam, odio ex excepturi eius labore pariatur magni nisi laudantium consequatur maxime assumenda adipisci est ipsum!"
+  "letsbuild_header": "Let's Build Together",
+  "services_header": "Services We Offer",
+  "services_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod vel accusantium sunt rerum voluptates quam, odio ex excepturi eius labore pariatur magni nisi laudantium consequatur maxime assumenda adipisci est ipsum!",
+  "a_person_photo_label": "David Weiss Photo",
+  "a_person_description": "David Weiss Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente alias hic in voluptatem. Labore, sunt placeat nobis expedita dolores, consequuntur, voluptatem possimus illo iure ullam quos nemo officiis iusto quod? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem architecto molestias quisquam corrupti nihil non amet dolorum, vero autem, odit voluptatem recusandae illo fugit et itaque deserunt aliquam reiciendis sit!",
+  "letsbuild_content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo tempore, quibusdam obcaecati dolores velit consectetur nobis hic. Placeat perferendis, distinctio saepe ipsum rerum provident maiores ipsa ea! Praesentium quia necessitatibus facilis id eius vero fugiat sapiente, asperiores aut enim rem debitis, iure illum perferendis dignissimos delectus exercitationem sequi? Optio, accusamus?",
+  "contact_us": "Contact Us",
+  "letsbuild_alt_image": "Paper people cutouts",
+  "sign_up": "Sign Up",
+  "nonprofits": "Nonprofits",
+  "facebook": "Facebook",
+  "linkedin": "LinkedIn",
+  "instagram": "Instagram"
 }

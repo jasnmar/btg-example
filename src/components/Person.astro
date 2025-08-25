@@ -1,0 +1,68 @@
+---
+import Image from "astro/components/Image.astro"
+import davidHeadshot from "../assets/headshots/DavidHeadshot.jpeg"
+import { m } from "../paraglide/messages.js"
+---
+<div class="person-main">
+
+  <div class="person-card">
+    <div class="head-shot-section">
+      <figure>
+        <Image class="headshot" src={davidHeadshot} alt="David Headshot"/>
+        <figcaption>{m.a_person_photo_label()}</figcaption>
+      </figure>
+    </div>
+    <p>{m.a_person_description()}</p>
+  </div>
+</div>
+
+
+<style>
+  .person-main {
+    container-type: inline-size;
+    container-name: person-card;
+  }
+  .person-card {
+    margin-top:3rem;
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    gap:2rem;
+
+    @container person-card (width < 800px) {
+      & {
+        flex-direction:column;
+      align-items: center;
+      }
+    }
+    .head-shot-section {
+      flex-grow: 2;
+      min-width: 20%;
+      figure {
+        display:flex;
+        flex-direction:column;
+        align-items: center;
+        width:100%;
+        justify-content: center;
+      }
+
+      .headshot {
+        width: 10rem;
+        height: 10rem;
+        border-radius: 50%;
+      }
+    }
+    figcaption {
+      padding-top:1rem;
+      text-align: center;
+    }
+    p{
+      flex-grow: 0;
+      max-width:70%;
+      @container person-card (width < 800px) {
+        & {
+          max-width:100%;
+        }
+      }
+  }
+</style>

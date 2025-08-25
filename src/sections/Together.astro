@@ -1,0 +1,43 @@
+---
+import Section from "../components/Section.astro"
+import together from "../assets/together.webp"
+import ButtonLink from "../components/ButtonLink.astro"
+import { m } from "../paraglide/messages.js"
+---
+
+<Section varient="secondary" id="LetsBuild" imagelocation="right">
+  <div class="content">
+    <h2>{m.letsbuild_header()}</h2>
+    <p>
+      {m.letsbuild_content()}
+    </p>
+    <div class="buttonContainer">
+      <ButtonLink text={m.contact_us()} href="#contact" />
+    </div>
+  </div>
+  <img src={together.src} alt={m.letsbuild_alt_image()} />
+</Section>
+
+<style>
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    @container cont (width < 1000px) {
+      max-width: 25rem;
+      max-height: 25rem;
+      place-self: center;
+    }
+  }
+  .content {
+    padding-block: 5rem;
+    @container cont (width < 1000px) {
+      padding-bottom: 0;
+    }
+  }
+
+  .buttonContainer {
+    margin-block: 2rem;
+    width: 25rem;
+  }
+</style>
