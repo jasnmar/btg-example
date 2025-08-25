@@ -1,0 +1,44 @@
+---
+import ButtonLink from "../components/ButtonLink.astro"
+import Section from "../components//Section.astro"
+import { m } from "../paraglide/messages.js"
+import involved from "../assets/involved.webp"
+---
+
+<Section varient="primary" id="contact" imagelocation="left">
+  <img src={involved.src} alt={m.getinvolved_header()} />
+  <div class="content-container">
+    <h2>{m.contact_header()}</h2>
+
+    <p class="content-text">
+      {m.contact_description()}
+    </p>
+    <div class="buttonContainer">
+      <ButtonLink href="#" text={m.sign_up()} />
+    </div>
+  </div>
+</Section>
+
+<style>
+
+  .content-container {
+    margin-top:3rem;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 1rem;
+    h2 {
+      margin-bottom:1rem;
+    }
+  }
+
+  .buttonContainer {
+    margin-top: 1rem;
+    width: 25rem;
+  }
+
+  @container section (width < 600px) {
+    .content-container {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
