@@ -1,15 +1,57 @@
+---
+interface Props {
+  imagelocation?: string
+}
 
-
+const { imagelocation = null } = Astro.props
+let classList = " padded"
+if (imagelocation == null) {
+  classList = " padded"
+} else if (imagelocation == "right") {
+  classList = " right"
+} else if (imagelocation == "left") {
+  classList = " left"
+}
+---
 
 <div class="container">
-  <slot />
+  <div class={classList}>
+    <slot />
+  </div>
 </div>
 
 <style>
   .container {
-    align-items: center;
-    padding-inline: 60px;
-    @media (width < 1200px) {
+    container-type: inline-size;
+    container-name: cont;
+  }
+
+  .left {
+    display: flex;
+    flex-direction: row;
+    padding-right: 3.75rem;
+  }
+
+  .right {
+    width: 100%;
+    display: grid;
+    grid-template-columns: [content] 2fr [image] 1fr;
+    justify-content: space-between;
+    padding-left: 3.75rem;
+    gap: 2rem;
+    @container cont (width < 1000px) {
+      & {
+        grid-template-rows: [content] 1fr [image] 2fr;
+        grid-template-columns:none;
+        padding-inline:3.75rem;
+        place-content: center;
+        text-align:center;
+      }
+    }
+  }
+  .padded {
+    padding-inline: 3.75rem;
+    @container cont (width < 1200px) {
       & {
         padding-inline: clamp(1.5rem, 10vw, 3rem);
       }

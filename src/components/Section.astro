@@ -5,12 +5,11 @@ interface Props {
   varient?: string
   main?: boolean
   id?: string
+  imagelocation?: string
 }
 
 //Varients primary (default), dark, secondary, 
-const { main = false } = Astro.props
-const { id = "" } = Astro.props
-const { varient = "primary" } = Astro.props
+const { main = false, id = "", imagelocation = "", varient = "primary" } = Astro.props
 const classNames = 
 varient=== 
   "dark" ? "dark" : 
@@ -26,7 +25,7 @@ varient===
     </main>
   ) : (
     <section class={classNames} id={id}>
-      <Container>
+      <Container imagelocation={imagelocation}>
         <slot />
       </Container>
     </section>

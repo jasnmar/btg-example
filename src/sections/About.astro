@@ -1,6 +1,6 @@
 ---
 import Section from "../components/Section.astro"
-import ButtonLink from "../components/ButtonLink.astro"
+import Person from "../components/Person.astro"
 import { m } from "../paraglide/messages.js"
 import { getCollection } from "astro:content"
 
@@ -13,17 +13,19 @@ import { getCollection } from "astro:content"
     <p class="content-text"> 
       {m.about_description()}
     </p>
-    <ButtonLink href="#" text={m.about_button_learnmore()}>
-    </ButtonLink>
+  </div>
+  <div class="card-container">
+    <Person />
   </div>
 
 </Section>
 
 <style>
+  h2 {
+    text-align: center;
+  }
   .content-container{
-    display:grid;
-    grid-template-columns: 3fr 1fr;
-    gap: 2em;
+    display:flex;
   }
 
   @container section (width < 600px) {
