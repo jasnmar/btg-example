@@ -2,44 +2,42 @@
 import Section from "../components/Section.astro"
 import together from "../assets/together.webp"
 import ButtonLink from "../components/ButtonLink.astro"
+import { m } from "../paraglide/messages.js"
 ---
 
-
-<Section varient="secondary" id="LetsBuild" imagelocation="right" >
+<Section varient="secondary" id="LetsBuild" imagelocation="right">
   <div class="content">
-    <h2>Let's Build Together</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo tempore, quibusdam obcaecati dolores velit consectetur nobis hic. Placeat perferendis, distinctio saepe ipsum rerum provident maiores ipsa ea! Praesentium quia necessitatibus facilis id eius vero fugiat sapiente, asperiores aut enim rem debitis, iure illum perferendis dignissimos delectus exercitationem sequi? Optio, accusamus?</p>
+    <h2>{m.letsbuild_header()}</h2>
+    <p>
+      {m.letsbuild_content()}
+    </p>
     <div class="buttonContainer">
-      <ButtonLink text="Contact Us" href="#contact"></ButtonLink>
+      <ButtonLink text={m.contact_us()} href="#contact" />
     </div>
-
   </div>
-  <img src={together.src} alt="Paper people cutouts" />
-  
-  
+  <img src={together.src} alt={m.letsbuild_alt_image()} />
 </Section>
 
 <style>
   img {
-    height:100%;
-    width:100%;
-    object-fit:cover;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
     @container cont (width < 1000px) {
-      max-width:25rem;
-      max-height:25rem;
+      max-width: 25rem;
+      max-height: 25rem;
       place-self: center;
-
     }
   }
   .content {
-    padding-block:5rem;
+    padding-block: 5rem;
     @container cont (width < 1000px) {
-      padding-bottom:0;
+      padding-bottom: 0;
     }
   }
 
   .buttonContainer {
-    margin-block:2rem;
+    margin-block: 2rem;
     width: 25rem;
   }
 </style>

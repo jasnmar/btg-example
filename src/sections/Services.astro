@@ -9,34 +9,38 @@ const services = await getCollection("services")
 ---
 
 <Section id="services" varient="dark">
-  <h2>{m.services_header()}</h2>
-  <p>
-    {m.services_description()}
-  </p>
-  <div class="service-list">
-    {
-      services.map((service) => (
-        <Pill tooltip={service.data.description}>{service.data.title}</Pill>
-      ))
-    }
+  <div class="content-container">
+    <div class="content">
+      <h2>{m.services_header()}</h2>
+      <p>
+        {m.services_description()}
+      </p>
+    </div>
+    <ul class="service-list">
+      {services.map((service) => <li>{service.data.title}</li>)}
+    </ul>
   </div>
 </Section>
 
 <style>
   h2 {
     font-size: 3em;
-    text-align: center;
   }
   p {
     padding-bottom: 2em;
-    text-align: center;
-    
   }
-  .service-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1em;
-    justify-content: center;
+  .content-container {
+    display: grid;
+    grid-template-columns: [text] 3fr [list] 1fr;
+    @container cont (width < 1000px) {
+      grid-template-rows: [text] 1fr [list] 1fr;
+      grid-template-columns: none;
+    }
+  }
 
+  .service-list {
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
   }
 </style>
