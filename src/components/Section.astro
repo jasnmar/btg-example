@@ -8,23 +8,28 @@ interface Props {
   imagelocation?: string
 }
 
-//Varients primary (default), dark, secondary, 
-const { main = false, id = "", imagelocation = "", varient = "primary" } = Astro.props
-const classNames = 
-varient=== 
-  "dark" ? "dark" : 
-varient=== 
-  "secondary" ? "secondary" : ""
+//Varients primary (default), dark, secondary,
+const {
+  main = false,
+  id = "",
+  imagelocation = "",
+  varient = "primary"
+} = Astro.props
 
+const classList = []
+if (imagelocation === "") {
+  classList.push("padded")
+}
+classList.push(varient)
 ---
 
 {
   main == true ? (
-    <main class={classNames} id={id}>
+    <main class:list={classList} id={id}>
       <slot />
     </main>
   ) : (
-    <section class={classNames} id={id}>
+    <section class:list={classList} id={id}>
       <Container imagelocation={imagelocation}>
         <slot />
       </Container>
@@ -34,17 +39,17 @@ varient===
 
 <style>
   section {
-    padding-block: 80px;
     background-color: var(--primary);
     container-type: inline-size;
     container-name: section;
-
+  }
+  .padded {
+    padding-block: 5rem;
     @media screen and (width < 1200px) {
       & {
         padding-block: clamp(3rem, 10vw, 5rem);
       }
     }
-
     @media screen and (width < 600px) {
       & {
         padding-block: clamp(1.5rem, 10vw, 3rem);

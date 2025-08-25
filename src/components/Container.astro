@@ -27,9 +27,21 @@ if (imagelocation == null) {
   }
 
   .left {
-    display: flex;
-    flex-direction: row;
+    width: 100%;
+    display: grid;
+    grid-template-columns: [image] 1fr [content] 2fr ;
+    justify-content: space-between;
     padding-right: 3.75rem;
+    gap: 2rem;
+    @container cont (width < 1000px) {
+      & {
+        grid-template-rows:  [image] 1fr [content] 1fr;
+        grid-template-columns: none;
+        padding-inline: 3.75rem;
+        place-content: center;
+        text-align: center;
+      }
+    }
   }
 
   .right {
@@ -41,11 +53,11 @@ if (imagelocation == null) {
     gap: 2rem;
     @container cont (width < 1000px) {
       & {
-        grid-template-rows: [content] 1fr [image] 2fr;
-        grid-template-columns:none;
-        padding-inline:3.75rem;
+        grid-template-rows: [content] 1fr [image] 1fr;
+        grid-template-columns: none;
+        padding-inline: 3.75rem;
         place-content: center;
-        text-align:center;
+        text-align: center;
       }
     }
   }
