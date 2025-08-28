@@ -29,16 +29,22 @@ import involved from "../assets/involved.webp"
     h2 {
       margin-bottom:1rem;
     }
+    @container cont (width < 1000px) {
+      &{
+        display:flex;
+        flex-direction:column;
+        gap:1rem;
+      }
+    }
   }
 
   .buttonContainer {
     margin-top: 1rem;
     width: 25rem;
-  }
-
-  @container section (width < 600px) {
-    .content-container {
-      grid-template-columns: 1fr;
+    @container cont (width < 1000px) {
+      width: 100%;
     }
   }
+
+
 </style>

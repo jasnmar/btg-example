@@ -37,7 +37,6 @@ const year = today.getFullYear()
       <a href="#" class="main-link">{m.instagram()}</a>
       <a href="#" class="main-link">{m.facebook()}</a>
     </div>
-
   </div>
 
   <div class="bottom-container">
@@ -63,9 +62,14 @@ const year = today.getFullYear()
     container-type: inline-size;
     container-name: footer;
 
+    @media screen and (width < 1000px) {
+      display: flex;
+      flex-direction: column;
+    }
+
     @media screen and (width < 600px) {
       padding-top: 0.5em;
-      grid-template-columns: 1fr;
+      display: flex;
       justify-items: start;
     }
 
@@ -81,13 +85,23 @@ const year = today.getFullYear()
       align-items: flex-start;
       height: 100%;
     }
+
     .links {
-      height:100%;
-      width:100%;
-      display:grid;
-      grid-template-rows:1fr 1fr;
-      gap:1em;
+      height: 100%;
+      width: 100%;
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      gap: 1em;
+      @container footer (width < 600px) {
+        & {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.5em;
+        }
+      }
     }
+
     .top {
       align-self: start;
     }
@@ -99,11 +113,26 @@ const year = today.getFullYear()
       flex-direction: row;
       justify-content: flex-start;
       justify-content: space-between;
+      @container footer (width < 600px) {
+        & {
+          display: flex;
+          flex-direction: row;
+          align-items: flex-start;
+          padding-left: 0;
+        }
+      }
     }
+
     .bottom {
       align-self: end;
-      padding-left:30rem;
+      padding-left: 30rem;
+      @container footer (width < 600px) {
+        & {
+          padding-left: 0;
+        }
+      }
     }
+
     .spread {
       display: flex;
       flex-direction: column;
@@ -125,6 +154,7 @@ const year = today.getFullYear()
     .secondary-link {
       font-size: 0.75em;
     }
+
     .copyright {
       padding-left: 0.5rem;
     }
@@ -143,14 +173,6 @@ const year = today.getFullYear()
       justify-content: center;
       align-items: center;
       gap: 1em;
-
-      svg:hover {
-        filter: drop-shadow(0 0 1em var(--clr-lightest));
-      }
-
-      svg {
-        width: 3em;
-      }
     }
   }
 </style>

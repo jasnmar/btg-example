@@ -35,8 +35,9 @@ if (imagelocation == null) {
     gap: 2rem;
     @container cont (width < 1000px) {
       & {
-        grid-template-rows:  [image] 1fr [content] 1fr;
-        grid-template-columns: none;
+        display:flex;
+        flex-direction:column;
+        padding-bottom:2rem;
         padding-inline: 3.75rem;
         place-content: center;
         text-align: center;
